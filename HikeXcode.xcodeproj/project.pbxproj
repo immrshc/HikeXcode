@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E29EFC801C0F2B7100F47A22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC7F1C0F2B7100F47A22 /* AppDelegate.swift */; };
 		E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC811C0F2B7100F47A22 /* ViewController.swift */; };
 		E29EFC851C0F2B7100F47A22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29EFC831C0F2B7100F47A22 /* Main.storyboard */; };
 		E29EFC871C0F2B7100F47A22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29EFC861C0F2B7100F47A22 /* Assets.xcassets */; };
 		E29EFC8A1C0F2B7100F47A22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29EFC881C0F2B7100F47A22 /* LaunchScreen.storyboard */; };
 		E29EFC951C0F2B7100F47A22 /* HikeXcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC941C0F2B7100F47A22 /* HikeXcodeTests.swift */; };
 		E29EFCA01C0F2B7100F47A22 /* HikeXcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC9F1C0F2B7100F47A22 /* HikeXcodeUITests.swift */; };
+		E29EFCB21C0F302C00F47A22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */; };
+		E29EFCC11C0F308900F47A22 /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */; };
+		E29EFCC21C0F308900F47A22 /* AccountCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB41C0F308900F47A22 /* AccountCollectionViewController.swift */; };
+		E29EFCC31C0F308900F47A22 /* AccountTimeLineFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB51C0F308900F47A22 /* AccountTimeLineFetcher.swift */; };
+		E29EFCC41C0F308900F47A22 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB71C0F308900F47A22 /* LoginController.swift */; };
+		E29EFCC51C0F308900F47A22 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB81C0F308900F47A22 /* PostController.swift */; };
+		E29EFCC61C0F308900F47A22 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCB91C0F308900F47A22 /* TimeLine.swift */; };
+		E29EFCC71C0F308900F47A22 /* TimeLineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCBA1C0F308900F47A22 /* TimeLineCollectionViewCell.swift */; };
+		E29EFCC81C0F308900F47A22 /* TimeLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCBB1C0F308900F47A22 /* TimeLineController.swift */; };
+		E29EFCC91C0F308900F47A22 /* TimeLineDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCBC1C0F308900F47A22 /* TimeLineDetailController.swift */; };
+		E29EFCCA1C0F308900F47A22 /* TimeLineFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCBD1C0F308900F47A22 /* TimeLineFetcher.swift */; };
+		E29EFCCB1C0F308900F47A22 /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCBE1C0F308900F47A22 /* TopTabBarController.swift */; };
+		E29EFCCC1C0F308900F47A22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCBF1C0F308900F47A22 /* User.swift */; };
+		E29EFCCD1C0F308900F47A22 /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFCC01C0F308900F47A22 /* UserFetcher.swift */; };
+		EA227D343CA191C3BCCAF19F /* Pods_HikeXcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HikeXcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.release.xcconfig"; sourceTree = "<group>"; };
+		B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.debug.xcconfig"; sourceTree = "<group>"; };
 		E29EFC7C1C0F2B7100F47A22 /* HikeXcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikeXcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E29EFC7F1C0F2B7100F47A22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E29EFC811C0F2B7100F47A22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E29EFC841C0F2B7100F47A22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E29EFC861C0F2B7100F47A22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +63,21 @@
 		E29EFC9B1C0F2B7100F47A22 /* HikeXcodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HikeXcodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29EFC9F1C0F2B7100F47A22 /* HikeXcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeXcodeUITests.swift; sourceTree = "<group>"; };
 		E29EFCA11C0F2B7100F47A22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		E29EFCB41C0F308900F47A22 /* AccountCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewController.swift; sourceTree = "<group>"; };
+		E29EFCB51C0F308900F47A22 /* AccountTimeLineFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTimeLineFetcher.swift; sourceTree = "<group>"; };
+		E29EFCB61C0F308900F47A22 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
+		E29EFCB71C0F308900F47A22 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		E29EFCB81C0F308900F47A22 /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		E29EFCB91C0F308900F47A22 /* TimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
+		E29EFCBA1C0F308900F47A22 /* TimeLineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineCollectionViewCell.swift; sourceTree = "<group>"; };
+		E29EFCBB1C0F308900F47A22 /* TimeLineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineController.swift; sourceTree = "<group>"; };
+		E29EFCBC1C0F308900F47A22 /* TimeLineDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineDetailController.swift; sourceTree = "<group>"; };
+		E29EFCBD1C0F308900F47A22 /* TimeLineFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineFetcher.swift; sourceTree = "<group>"; };
+		E29EFCBE1C0F308900F47A22 /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
+		E29EFCBF1C0F308900F47A22 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E29EFCC01C0F308900F47A22 /* UserFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA227D343CA191C3BCCAF19F /* Pods_HikeXcode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		372B7A4770FE98747F46E3D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */,
+				AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		55964A351A898B925F3F123B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E29EFC731C0F2B7100F47A22 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +130,8 @@
 				E29EFC931C0F2B7100F47A22 /* HikeXcodeTests */,
 				E29EFC9E1C0F2B7100F47A22 /* HikeXcodeUITests */,
 				E29EFC7D1C0F2B7100F47A22 /* Products */,
+				372B7A4770FE98747F46E3D4 /* Pods */,
+				55964A351A898B925F3F123B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +148,10 @@
 		E29EFC7E1C0F2B7100F47A22 /* HikeXcode */ = {
 			isa = PBXGroup;
 			children = (
-				E29EFC7F1C0F2B7100F47A22 /* AppDelegate.swift */,
-				E29EFC811C0F2B7100F47A22 /* ViewController.swift */,
+				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
+				E29EFCCE1C0F30A500F47A22 /* Controller */,
+				E29EFCCF1C0F30AF00F47A22 /* Model */,
+				E29EFCB61C0F308900F47A22 /* HikeXcode-Bridging-Header.h */,
 				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
 				E29EFC861C0F2B7100F47A22 /* Assets.xcassets */,
 				E29EFC881C0F2B7100F47A22 /* LaunchScreen.storyboard */,
@@ -125,6 +178,34 @@
 			path = HikeXcodeUITests;
 			sourceTree = "<group>";
 		};
+		E29EFCCE1C0F30A500F47A22 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E29EFC811C0F2B7100F47A22 /* ViewController.swift */,
+				E29EFCB71C0F308900F47A22 /* LoginController.swift */,
+				E29EFCB81C0F308900F47A22 /* PostController.swift */,
+				E29EFCBE1C0F308900F47A22 /* TopTabBarController.swift */,
+				E29EFCBA1C0F308900F47A22 /* TimeLineCollectionViewCell.swift */,
+				E29EFCBB1C0F308900F47A22 /* TimeLineController.swift */,
+				E29EFCBC1C0F308900F47A22 /* TimeLineDetailController.swift */,
+				E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */,
+				E29EFCB41C0F308900F47A22 /* AccountCollectionViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E29EFCCF1C0F30AF00F47A22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E29EFCBF1C0F308900F47A22 /* User.swift */,
+				E29EFCC01C0F308900F47A22 /* UserFetcher.swift */,
+				E29EFCB91C0F308900F47A22 /* TimeLine.swift */,
+				E29EFCBD1C0F308900F47A22 /* TimeLineFetcher.swift */,
+				E29EFCB51C0F308900F47A22 /* AccountTimeLineFetcher.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E29EFCA41C0F2B7100F47A22 /* Build configuration list for PBXNativeTarget "HikeXcode" */;
 			buildPhases = (
+				DA0542320B04073B391DB8F8 /* Check Pods Manifest.lock */,
 				E29EFC781C0F2B7100F47A22 /* Sources */,
 				E29EFC791C0F2B7100F47A22 /* Frameworks */,
 				E29EFC7A1C0F2B7100F47A22 /* Resources */,
+				3F33586BA760318FC83A15F0 /* Embed Pods Frameworks */,
+				9F783C59EE8302921A80EDEC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,13 +338,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F33586BA760318FC83A15F0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F783C59EE8302921A80EDEC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA0542320B04073B391DB8F8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E29EFC781C0F2B7100F47A22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29EFCC61C0F308900F47A22 /* TimeLine.swift in Sources */,
+				E29EFCCB1C0F308900F47A22 /* TopTabBarController.swift in Sources */,
+				E29EFCC21C0F308900F47A22 /* AccountCollectionViewController.swift in Sources */,
+				E29EFCCD1C0F308900F47A22 /* UserFetcher.swift in Sources */,
+				E29EFCC41C0F308900F47A22 /* LoginController.swift in Sources */,
+				E29EFCB21C0F302C00F47A22 /* AppDelegate.swift in Sources */,
+				E29EFCCA1C0F308900F47A22 /* TimeLineFetcher.swift in Sources */,
+				E29EFCCC1C0F308900F47A22 /* User.swift in Sources */,
+				E29EFCC71C0F308900F47A22 /* TimeLineCollectionViewCell.swift in Sources */,
+				E29EFCC31C0F308900F47A22 /* AccountTimeLineFetcher.swift in Sources */,
+				E29EFCC51C0F308900F47A22 /* PostController.swift in Sources */,
+				E29EFCC91C0F308900F47A22 /* TimeLineDetailController.swift in Sources */,
 				E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */,
-				E29EFC801C0F2B7100F47A22 /* AppDelegate.swift in Sources */,
+				E29EFCC81C0F308900F47A22 /* TimeLineController.swift in Sources */,
+				E29EFCC11C0F308900F47A22 /* AccountCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +543,7 @@
 		};
 		E29EFCA51C0F2B7100F47A22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HikeXcode/Info.plist;
@@ -409,6 +555,7 @@
 		};
 		E29EFCA61C0F2B7100F47A22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HikeXcode/Info.plist;
@@ -485,6 +632,7 @@
 				E29EFCA61C0F2B7100F47A22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E29EFCA71C0F2B7100F47A22 /* Build configuration list for PBXNativeTarget "HikeXcodeTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +641,7 @@
 				E29EFCA91C0F2B7100F47A22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E29EFCAA1C0F2B7100F47A22 /* Build configuration list for PBXNativeTarget "HikeXcodeUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +650,7 @@
 				E29EFCAC1C0F2B7100F47A22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

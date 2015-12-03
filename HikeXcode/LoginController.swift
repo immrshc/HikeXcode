@@ -26,7 +26,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     //画面遷移する
                     if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TopTabBarCtrl")
                         as? TopTabBarController {
-                            print("vc")
                             self.presentViewController(vc, animated: true, completion: nil)
                     }
                 }

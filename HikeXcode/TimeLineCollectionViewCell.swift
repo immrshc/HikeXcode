@@ -33,8 +33,6 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     }
     
     func favoriteUpdate(sender: UIButton){
-        print(sender.touchInside)
-        
         if let post:TimeLine = self.post {
             //お気に入りボタンが押されると色を変える
             if post.favoriteCheck == false {
@@ -52,7 +50,7 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
 
 
 /*
-・投稿機能
 ・位置情報による検索
 ・投稿の位置情報によるピンの表示
-・画像のアップロード*/
+・画像のアップロード
+*/

@@ -13,6 +13,7 @@ import CoreLocation
 class TimeLineController: UICollectionViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var postArray:[TimeLine] = []
+    var refreshControl:UIRefreshControl!
     
     override func viewDidLoad() {
        super.viewDidLoad()
@@ -20,6 +21,11 @@ class TimeLineController: UICollectionViewController, MKMapViewDelegate, CLLocat
             self.postArray = items
             self.collectionView?.reloadData()
         }
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
+        self.refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView!.addSubview(refreshControl)
+        
     }
     @IBAction func postDo(sender: AnyObject) {
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostNC")
@@ -28,23 +34,28 @@ class TimeLineController: UICollectionViewController, MKMapViewDelegate, CLLocat
         }
     }
     
+    func refresh(){
+        TimeLineFetcher().download { (items) -> Void in
+            self.postArray = items
+            self.refreshControl.endRefreshing()
+            self.collectionView?.reloadData()
+        }
+    }
+    
     //セル数の指定
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Number:\(self.postArray.count)")
         return self.postArray.count
     }
     
     //セルの生成
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TimeLineCell", forIndexPath: indexPath) as! TimeLineCollectionViewCell
-        print("indexPath.row:\(indexPath.row)")
         cell.displayUpdate(postArray[indexPath.row])
         return cell
     }
     
     //詳細画面への遷移
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TimeLineDetailVC") as? TimeLineDetailController {
             vc.post = self.postArray[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)

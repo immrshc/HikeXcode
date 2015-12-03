@@ -11,12 +11,26 @@ import UIKit
 class AccountCollectionViewController: UICollectionViewController {
     
     var postArray:[TimeLine] = []
+    var refreshControl:UIRefreshControl!
+    var selectedIndex:NSInteger!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //ユーザIDに紐付いた自分の投稿を配列にする
         AccountTimeLineFetcher(selectedSegmentIndex: 0).download { (items) -> Void in
             self.postArray = items
+            self.collectionView?.reloadData()
+        }
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
+        self.refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView!.addSubview(refreshControl)
+    }
+    
+    func refresh(){
+        AccountTimeLineFetcher(selectedSegmentIndex: selectedIndex).download { (items) -> Void in
+            self.postArray = items
+            self.refreshControl.endRefreshing()
             self.collectionView?.reloadData()
         }
     }
@@ -35,6 +49,7 @@ class AccountCollectionViewController: UICollectionViewController {
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AccountHeader", forIndexPath: indexPath) as! AccountCollectionViewCell
         header.displayUpdate()
         let changePostTapBtn:UISegmentedControl = header.changePostTapBtn
+        self.selectedIndex = changePostTapBtn.selectedSegmentIndex
         changePostTapBtn.addTarget(self, action: "postUpdate:", forControlEvents: UIControlEvents.ValueChanged)
         header.addSubview(changePostTapBtn)
         return header
@@ -50,22 +65,10 @@ class AccountCollectionViewController: UICollectionViewController {
 
     
     func postUpdate(segcon: UISegmentedControl){
-        
-        switch segcon.selectedSegmentIndex {
-            case 0:
-                AccountTimeLineFetcher(selectedSegmentIndex: 0).download { (items) -> Void in
-                    print("case0:\(items)")
-                    self.postArray = items
-                    self.collectionView?.reloadData()
-                }
-            case 1:
-                AccountTimeLineFetcher(selectedSegmentIndex: 1).download { (items) -> Void in
-                    print("case1:\(items)")
-                    self.postArray = items
-                    self.collectionView?.reloadData()
-                }
-            default:
-                print("Error")
+        self.selectedIndex = segcon.selectedSegmentIndex
+        AccountTimeLineFetcher(selectedSegmentIndex: selectedIndex).download { (items) -> Void in
+            self.postArray = items
+            self.collectionView?.reloadData()
         }
     }
     

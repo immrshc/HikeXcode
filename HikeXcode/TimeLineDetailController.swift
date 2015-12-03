@@ -41,8 +41,6 @@ class TimeLineDetailController: UIViewController {
     }
     
     func favoriteUpdate(sender: UIButton){
-        print(sender.touchInside)
-        
         //お気に入りボタンが押されると色を変える
         if self.post.favoriteCheck == false {
             self.favoriteIconBtn.setTitleColor(UIColor.yellowColor(), forState: .Normal)

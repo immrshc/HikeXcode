@@ -7,7 +7,7 @@
 //
 
 class AccountTimeLineFetcher: TimeLineFetcher {
-    init(selectedSegmentIndex: Int){
+    init(selectedSegmentIndex: NSInteger){
         super.init()
         switch selectedSegmentIndex {
         case 0:

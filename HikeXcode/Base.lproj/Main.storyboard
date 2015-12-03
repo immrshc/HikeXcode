@@ -327,6 +327,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Cba-fy-UN4" firstAttribute="width" secondItem="WXk-dt-yl6" secondAttribute="width" id="25L-nr-nMa"/>
                             <constraint firstItem="Cba-fy-UN4" firstAttribute="leading" secondItem="WXk-dt-yl6" secondAttribute="leading" id="2gN-Fk-JyE"/>

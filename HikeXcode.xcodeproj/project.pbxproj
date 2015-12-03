@@ -51,6 +51,7 @@
 		5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HikeXcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.release.xcconfig"; sourceTree = "<group>"; };
 		B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.debug.xcconfig"; sourceTree = "<group>"; };
+		E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
 		E29EFC7C1C0F2B7100F47A22 /* HikeXcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikeXcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29EFC811C0F2B7100F47A22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E29EFC841C0F2B7100F47A22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		E29EFCB41C0F308900F47A22 /* AccountCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewController.swift; sourceTree = "<group>"; };
 		E29EFCB51C0F308900F47A22 /* AccountTimeLineFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTimeLineFetcher.swift; sourceTree = "<group>"; };
-		E29EFCB61C0F308900F47A22 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
 		E29EFCB71C0F308900F47A22 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E29EFCB81C0F308900F47A22 /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		E29EFCB91C0F308900F47A22 /* TimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
@@ -151,11 +151,11 @@
 				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
 				E29EFCCE1C0F30A500F47A22 /* Controller */,
 				E29EFCCF1C0F30AF00F47A22 /* Model */,
-				E29EFCB61C0F308900F47A22 /* HikeXcode-Bridging-Header.h */,
 				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
 				E29EFC861C0F2B7100F47A22 /* Assets.xcassets */,
 				E29EFC881C0F2B7100F47A22 /* LaunchScreen.storyboard */,
 				E29EFC8B1C0F2B7100F47A22 /* Info.plist */,
+				E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */,
 			);
 			path = HikeXcode;
 			sourceTree = "<group>";
@@ -546,10 +546,13 @@
 			baseConfigurationReference = B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HikeXcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imamura.HikeXcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HikeXcode/HikeXcode-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -558,10 +561,12 @@
 			baseConfigurationReference = AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HikeXcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imamura.HikeXcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HikeXcode/HikeXcode-Bridging-Header.h";
 			};
 			name = Release;
 		};

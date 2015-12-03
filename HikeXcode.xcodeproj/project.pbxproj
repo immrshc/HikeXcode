@@ -195,8 +195,8 @@
 				E29EFCBA1C0F308900F47A22 /* TimeLineCollectionViewCell.swift */,
 				E29EFCBB1C0F308900F47A22 /* TimeLineController.swift */,
 				E29EFCBC1C0F308900F47A22 /* TimeLineDetailController.swift */,
-				E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */,
 				E29EFCB41C0F308900F47A22 /* AccountCollectionViewController.swift */,
+				E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

@@ -12,6 +12,7 @@ class TopTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     //タブが押されると再読み込みする
 }

@@ -40,6 +40,7 @@ class PostDispatcher {
                         let post = TimeLine(json: JSON(posts[i]))
                         postArray.append(post)
                     }
+                    print("\(self.params["postContent"]!)")
                     //callback(postArray)
             }
         }

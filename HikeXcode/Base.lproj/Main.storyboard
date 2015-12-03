@@ -204,7 +204,7 @@
                     <navigationItem key="navigationItem" title="TimeLine" id="DVY-20-8hI">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="92w-dz-Q68">
                             <connections>
-                                <segue destination="jw1-dx-uag" kind="show" id="Dx7-bN-Stw"/>
+                                <action selector="postDo:" destination="vFi-GU-nij" id="Lfp-xn-32M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -516,7 +516,7 @@
                     <navigationItem key="navigationItem" title="Account" id="4g2-xQ-8cm">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="MGx-cC-XOZ">
                             <connections>
-                                <segue destination="jw1-dx-uag" kind="show" action="showDetailViewController:sender:" id="njL-cl-EDV"/>
+                                <action selector="postDo:" destination="x7R-LQ-IBb" id="LhP-d2-e6u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -665,7 +665,4 @@
             <point key="canvasLocation" x="672" y="433"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Dx7-bN-Stw"/>
-    </inferredMetricsTieBreakers>
 </document>

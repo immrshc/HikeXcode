@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PostController: UICollectionViewController {
-
+class PostController: UIViewController {
 
     @IBOutlet weak var cancelTapBtn: UIBarButtonItem!
     @IBOutlet weak var postTapBtn: UIBarButtonItem!
@@ -19,6 +18,13 @@ class PostController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.postBackIV.sd_setImageWithURL(NSURL(string: "postBackImage.jpg"))
+        //キャンセルが押されると元の画面に戻るアクションメソッドを追加
+        //doneが押されると投稿処理をするアクションメソッドを追加
     }
+    //キャンセルが押されると元の画面に戻るアクションメソッド
+    //doneが押されると投稿処理をするアクションメソッド
+    //Postインスタンスを生成
+    //PostインスタンスをDispatcherの引数にする
+
 }

@@ -21,6 +21,12 @@ class AccountCollectionViewController: UICollectionViewController {
         }
     }
     
+    @IBAction func postDo(sender: AnyObject) {
+        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostNC")
+            as? UINavigationController {
+                self.presentViewController(vc, animated: true, completion: nil)
+        }
+    }
     //ヘッダーの生成
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind != UICollectionElementKindSectionHeader {

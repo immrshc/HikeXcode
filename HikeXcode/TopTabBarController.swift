@@ -10,8 +10,6 @@ import UIKit
 
 class TopTabBarController: UITabBarController {
     
-    private let mySegLabel: UILabel = UILabel(frame: CGRectMake(0,0,150,150))
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E29A32B31C0FD07600112D78 /* postBackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E29A32B21C0FD07600112D78 /* postBackImage.jpg */; };
+		E29A32B51C0FDD8600112D78 /* PostDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */; };
+		E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B61C0FDDEF00112D78 /* Post.swift */; };
 		E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC811C0F2B7100F47A22 /* ViewController.swift */; };
 		E29EFC851C0F2B7100F47A22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29EFC831C0F2B7100F47A22 /* Main.storyboard */; };
 		E29EFC871C0F2B7100F47A22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29EFC861C0F2B7100F47A22 /* Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.release.xcconfig"; sourceTree = "<group>"; };
 		B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.debug.xcconfig"; sourceTree = "<group>"; };
 		E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
+		E29A32B21C0FD07600112D78 /* postBackImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = postBackImage.jpg; path = ../../../Downloads/postBackImage.jpg; sourceTree = "<group>"; };
+		E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDispatcher.swift; sourceTree = "<group>"; };
+		E29A32B61C0FDDEF00112D78 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E29EFC7C1C0F2B7100F47A22 /* HikeXcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikeXcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29EFC811C0F2B7100F47A22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E29EFC841C0F2B7100F47A22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
+				E29A32B21C0FD07600112D78 /* postBackImage.jpg */,
 				E29EFCCE1C0F30A500F47A22 /* Controller */,
 				E29EFCCF1C0F30AF00F47A22 /* Model */,
 				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
@@ -202,6 +209,8 @@
 				E29EFCB91C0F308900F47A22 /* TimeLine.swift */,
 				E29EFCBD1C0F308900F47A22 /* TimeLineFetcher.swift */,
 				E29EFCB51C0F308900F47A22 /* AccountTimeLineFetcher.swift */,
+				E29A32B61C0FDDEF00112D78 /* Post.swift */,
+				E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29A32B31C0FD07600112D78 /* postBackImage.jpg in Resources */,
 				E29EFC8A1C0F2B7100F47A22 /* LaunchScreen.storyboard in Resources */,
 				E29EFC871C0F2B7100F47A22 /* Assets.xcassets in Resources */,
 				E29EFC851C0F2B7100F47A22 /* Main.storyboard in Resources */,
@@ -395,6 +405,7 @@
 				E29EFCCB1C0F308900F47A22 /* TopTabBarController.swift in Sources */,
 				E29EFCC21C0F308900F47A22 /* AccountCollectionViewController.swift in Sources */,
 				E29EFCCD1C0F308900F47A22 /* UserFetcher.swift in Sources */,
+				E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */,
 				E29EFCC41C0F308900F47A22 /* LoginController.swift in Sources */,
 				E29EFCB21C0F302C00F47A22 /* AppDelegate.swift in Sources */,
 				E29EFCCA1C0F308900F47A22 /* TimeLineFetcher.swift in Sources */,
@@ -403,6 +414,7 @@
 				E29EFCC31C0F308900F47A22 /* AccountTimeLineFetcher.swift in Sources */,
 				E29EFCC51C0F308900F47A22 /* PostController.swift in Sources */,
 				E29EFCC91C0F308900F47A22 /* TimeLineDetailController.swift in Sources */,
+				E29A32B51C0FDD8600112D78 /* PostDispatcher.swift in Sources */,
 				E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */,
 				E29EFCC81C0F308900F47A22 /* TimeLineController.swift in Sources */,
 				E29EFCC11C0F308900F47A22 /* AccountCollectionViewCell.swift in Sources */,

@@ -21,6 +21,12 @@ class TimeLineController: UICollectionViewController, MKMapViewDelegate, CLLocat
             self.collectionView?.reloadData()
         }
     }
+    @IBAction func postDo(sender: AnyObject) {
+        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostNC")
+            as? UINavigationController {
+                self.presentViewController(vc, animated: true, completion: nil)
+        }
+    }
     
     //セル数の指定
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

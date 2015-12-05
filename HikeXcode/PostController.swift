@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import CoreLocation
 
-class PostController: UIViewController, CLLocationManagerDelegate {
+class PostController: UIViewController {
     
-    var lm: CLLocationManager!
-    var latitude: CLLocationDegrees!
-    var longitude: CLLocationDegrees!
+    var latitude: Double?
+    var longitude: Double?
 
     @IBOutlet weak var postBackIV: UIImageView!
     @IBOutlet weak var postShowTV: UITextView!
@@ -28,36 +26,15 @@ class PostController: UIViewController, CLLocationManagerDelegate {
         
         postBackIV.image = UIImage(named:"postBackImage.jpg")
         
-        lm = CLLocationManager()
-        longitude = CLLocationDegrees()
-        latitude = CLLocationDegrees()
-
-        lm.delegate = self
-        // 位置情報取得の許可
-        lm.requestAlwaysAuthorization()
-        // 位置情報の精度
-        lm.desiredAccuracy = kCLLocationAccuracyBest
-        // 指定した値分移動したら位置情報を更新する
-        lm.distanceFilter = 1000
-        // GPSの使用を開始する
-        lm.startUpdatingLocation()
-        
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let latitude = app.sharedUserData["latitude"] as? Double,
+            let longitude = app.sharedUserData["longitude"] as? Double {
+                self.latitude = latitude
+                self.longitude = longitude
+                print("ユーザの投稿時の緯度経度：\(latitude), \(longitude)")
+        }
     }
     
-    //位置情報取得成功時に実行
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation){
-        latitude = Double(newLocation.coordinate.latitude)
-        longitude = Double(newLocation.coordinate.longitude)
-        print("latitude: \(latitude) , longitude: \(longitude)")
-    }
-    
-    //位置情報取得失敗時に実行
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("ErrorDomain: \(error.domain)")
-        print("ErrorCode: \(error.code)")
-        //http://stackoverflow.com/questions/1409141/location-manager-error-kclerrordomain-error-0
-    }
-
     @IBAction func cancelPost(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

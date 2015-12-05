@@ -267,9 +267,9 @@
                                         </variation>
                                     </button>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SXe-XH-8hm">
-                                        <rect key="frame" x="8" y="415" width="304" height="304"/>
+                                        <rect key="frame" x="8" y="415" width="304" height="203"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="SXe-XH-8hm" secondAttribute="height" multiplier="1:1" id="e6T-US-Ybv"/>
+                                            <constraint firstAttribute="width" secondItem="SXe-XH-8hm" secondAttribute="height" multiplier="3:2" id="e6T-US-Ybv"/>
                                             <constraint firstAttribute="height" constant="128" id="o6f-bN-oIl"/>
                                         </constraints>
                                         <variation key="default">

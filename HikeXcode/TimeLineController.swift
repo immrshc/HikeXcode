@@ -8,9 +8,8 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
-class TimeLineController: UICollectionViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class TimeLineController: UICollectionViewController {
     
     var postArray:[TimeLine] = []
     var refreshControl:UIRefreshControl!
@@ -21,12 +20,14 @@ class TimeLineController: UICollectionViewController, MKMapViewDelegate, CLLocat
             self.postArray = items
             self.collectionView?.reloadData()
         }
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
         self.refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView!.addSubview(refreshControl)
         
     }
+    
     @IBAction func postDo(sender: AnyObject) {
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostNC")
             as? UINavigationController {

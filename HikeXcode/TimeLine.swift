@@ -17,8 +17,8 @@ class TimeLine {
     var username:String?
     var text:String?
     var imageURL:String? = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
-    //var latitude:Double?
-    //var longitude:Double?
+    var latitude:Double?
+    var longitude:Double?
     
     init(json:JSON){
         self.favoriteCheck = json["favorite"].boolValue
@@ -26,8 +26,8 @@ class TimeLine {
         self.username = json["user"]["username"].stringValue
         self.text = json["text"].stringValue
         //self.imageURL = json["image"].stringValue
-        //self.latitude = json["latitude"].doubleValue
-        //self.longitude = json["longitude"].doubleValue
+        self.latitude = json["latitude"].doubleValue
+        self.longitude = json["longitude"].doubleValue
     }
     
     //お気に入り状態の切り替え

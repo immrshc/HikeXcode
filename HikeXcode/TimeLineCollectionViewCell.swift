@@ -47,10 +47,3 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     }
     
 }
-
-
-/*
-・位置情報による検索
-・投稿の位置情報によるピンの表示
-・画像のアップロード
-*/

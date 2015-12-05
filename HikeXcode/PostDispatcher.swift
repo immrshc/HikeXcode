@@ -36,7 +36,6 @@ class PostDispatcher {
                         "latitude": latitude,
                         "longitude": longitude]
                 ]
-                print("params:\(self.params)")
         
                 Alamofire.request(.GET, baseURL, parameters: params).responseJSON{_, _, result in
                     if result.isSuccess,

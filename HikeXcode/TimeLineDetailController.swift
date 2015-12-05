@@ -38,6 +38,32 @@ class TimeLineDetailController: UIViewController {
             } else {
                 self.favoriteIconBtn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
             }
+        
+        //地図にピンを立てる
+        if let latitude = post.latitude,
+            let longtitude = post.longitude {
+                print("投稿ごとの緯度経度:\(latitude),\(longtitude)")
+                let co = CLLocationCoordinate2DMake(latitude, longtitude)
+                let rg = MKCoordinateRegionMakeWithDistance(co, 3000, 3000)
+                detailMV.setRegion(rg, animated: false)
+                
+                //投稿のピン
+                let postPin = MKPointAnnotation()
+                postPin.coordinate = co
+                postPin.title = post.username
+                detailMV.addAnnotation(postPin)
+                
+                //ユーザのピン
+                let app = UIApplication.sharedApplication().delegate as! AppDelegate
+                if let userLatitude = app.sharedUserData["latitude"] as? Double,
+                    let userLongtitude = app.sharedUserData["longitude"] as? Double {
+                        let userPin = MKPointAnnotation()
+                        userPin.coordinate = CLLocationCoordinate2DMake(userLatitude, userLongtitude)
+                        userPin.title = "現在地"
+                        detailMV.addAnnotation(userPin)
+                }
+        }
+        
     }
     
     func favoriteUpdate(sender: UIButton){
@@ -52,30 +78,3 @@ class TimeLineDetailController: UIViewController {
         favoriteCountLabel.text = String(post.favoriteCount)
     }
 }
-        
-        /*
-            //地図にピンを立てる
-            if let latitude = post.latitude,
-                let longtitude = post.longitude{
-                    //print("\(latitude),\(longtitude)")
-                    let co = CLLocationCoordinate2DMake(latitude, longtitude)
-                    let rg = MKCoordinateRegionMakeWithDistance(co, 3000, 3000)
-                    detailMV.setRegion(rg, animated: false)
-        
-                    //投稿のピン
-                    let postPin = MKPointAnnotation()
-                    postPin.coordinate = co
-                    detailMV.addAnnotation(postPin)
-        
-                    //ユーザのピン
-                    let app = UIApplication.sharedApplication().delegate as! AppDelegate
-                    if let userLatitude = app.sharedLocation["latitude"] as? Double,
-                        let userLongtitude = app.sharedLocation["longtitude"] as? Double{
-                            let userPin = MKPointAnnotation()
-                            userPin.coordinate = CLLocationCoordinate2DMake(userLatitude, userLongtitude)
-                            userPin.title = "現在地"
-                            detailMV.addAnnotation(userPin)
-                    }
-            }
-        */
-

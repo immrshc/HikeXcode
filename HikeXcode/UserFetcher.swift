@@ -19,8 +19,13 @@ class UserFetcher: UIViewController {
             if result.isSuccess,
                 let res = result.value as? [String:AnyObject]{
                     print("userData:\(res)")
-                    let userData = User(json: JSON(res))
-                    callback(userData)
+                    //userData:["id": 1, "result": 1, "username": ShoichiImamura]
+                    //trueなら1, falseなら0になっている
+                    if res["result"]!.integerValue == 1 {
+                        let userData = User(json: JSON(res))
+                        print("userData:\(userData.username)")
+                        callback(userData)
+                    }
             }
         }
     }

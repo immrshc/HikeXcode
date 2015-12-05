@@ -23,7 +23,7 @@ class TimeLine {
     init(json:JSON){
         self.favoriteCheck = json["favorite"].boolValue
         self.favoriteCount = json["favorite_count"].intValue
-        self.username = json["username"].stringValue
+        self.username = json["user"]["username"].stringValue
         self.text = json["text"].stringValue
         //self.imageURL = json["image"].stringValue
         //self.latitude = json["latitude"].doubleValue

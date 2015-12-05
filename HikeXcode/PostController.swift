@@ -70,7 +70,13 @@ class PostController: UIViewController, CLLocationManagerDelegate {
                 //let image = String(self.postBackIV.sd_imageURL())
                 let image = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
                 let post = Post(content: text, imageURL: image, latitude: latitude, longitude: longitude)
-                PostDispatcher().download(post)
+                PostDispatcher(post: post).download{(result) -> Void in
+                    if result {
+                        print("投稿が完了しました")
+                    } else {
+                        print("投稿が失敗しました")
+                    }
+                }
         }
         self.dismissViewControllerAnimated(true, completion: nil)
         

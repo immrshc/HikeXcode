@@ -12,13 +12,13 @@ import SwiftyJSON
 class TimeLineFetcher {
     
     var baseURL = "http://localhost:3000/timeline/show_timeline.json"
-    var defaultParameter:[String:String] = [:]
+    var defaultParameter:[String:[String:AnyObject]] = [:]
     let app = UIApplication.sharedApplication().delegate as! AppDelegate
     //String(app.sharedUserData["id"])とするとクラスが初期化される前にappを参照するのでエラーが起こるのでインスタンス生成時に設定させる
     //http://stackoverflow.com/questions/32693150/whats-wrong-here-instance-member-cannot-be-used-on-type
     init(){
         //引数でSwitch文でbaseURLを変更する
-        self.defaultParameter = ["id":String(app.sharedUserData["id"])]
+        self.defaultParameter = ["user":["id":(app.sharedUserData["id"]?.integerValue)!]]
     }
     
     func download(callback:([TimeLine])->Void){

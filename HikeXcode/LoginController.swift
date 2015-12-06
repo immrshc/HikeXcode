@@ -9,27 +9,7 @@
 import UIKit
 
 class LoginController: UIViewController, UITextFieldDelegate {
-    /*
     
-    user_1:
-    id: 1
-    username: ShoichiImamura
-    mail: syoichiimamura@gmail.com
-    password: ybrdgaw8
-    
-    user_2:
-    id: 2
-    username: Shoichi
-    mail: s1210259@u.tsukuba.ac.jp
-    password: 1106Shoichi
-    
-    user_3:
-    id: 3
-    username: Imamura
-    mail: syoichiimamura@yahoo.com
-    password: 1106Imamura
-    
-    */
 
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passWordTF: UITextField!

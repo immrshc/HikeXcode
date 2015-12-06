@@ -47,6 +47,8 @@ class PostController: UIViewController {
                 //let image = String(self.postBackIV.sd_imageURL())
                 let image = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
                 let post = Post(content: text, imageURL: image, latitude: latitude, longitude: longitude)
+                
+                //画像以外はリクエストできる
                 PostDispatcher(post: post).download{(result) -> Void in
                     if result {
                         print("投稿が完了しました")
@@ -54,6 +56,16 @@ class PostController: UIViewController {
                         print("投稿が失敗しました")
                     }
                 }
+                /*
+                //画像のアップロードと投稿情報のリクエストをする(成否は確認中)
+                PostDispatcher(post: post).upload{(result) -> Void in
+                    if result {
+                        print("投稿が完了しました")
+                    } else {
+                        print("投稿が失敗しました")
+                    }
+                }
+                */
         }
         self.dismissViewControllerAnimated(true, completion: nil)
         

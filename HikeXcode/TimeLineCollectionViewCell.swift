@@ -19,7 +19,7 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     func displayUpdate(timeline: TimeLine){
         self.post = timeline
         postTextLabel.text = self.post!.text
-        postIV.sd_setImageWithURL(NSURL(string: self.post!.imageURL!))
+        postIV.sd_setImageWithURL(NSURL(string: post!.imageURL))
         
         favoriteIconBtn.addTarget(self, action: "favoriteUpdate:", forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(favoriteIconBtn)

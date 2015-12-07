@@ -23,10 +23,8 @@ class TimeLineFetcher {
     
     func download(callback:([TimeLine])->Void){
         Alamofire.request(.GET, baseURL, parameters: defaultParameter).responseJSON{_, _, result in
-            print(result)
             if result.isSuccess,
                 let posts = result.value as? [AnyObject]{
-                    print("post.count:\(posts.count)")
                     var postArray:[TimeLine] = []
                     for var i = 0; i < posts.count; i++ {
                         let post = TimeLine(json: JSON(posts[i]))
@@ -36,4 +34,6 @@ class TimeLineFetcher {
             }
         }
     }
+    
+    
 }

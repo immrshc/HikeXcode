@@ -25,7 +25,10 @@ class PostController: UIViewController {
         //Postでは出来なくて、PostControllerでは出来るのはなぜか質問する
         
         postBackIV.image = UIImage(named:"postBackImage.jpg")
-        
+
+        print("画像のファイル名：\(NSString(string: "postBackImage.jpg").stringByDeletingPathExtension)")
+        print("画像の拡張子：\(NSString(string: "postBackImage.jpg").pathExtension)")
+
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         if let latitude = app.sharedUserData["latitude"] as? Double,
             let longitude = app.sharedUserData["longitude"] as? Double {
@@ -41,10 +44,11 @@ class PostController: UIViewController {
 
     @IBAction func doPost(sender: AnyObject) {
         if let text:String = self.postShowTV.text,
-            //let image:String = self.postBackIV.sd_imageURL() as? String,
+            //Xcode内の画像のURLを引き渡す
+            let imageURL:String = "postBackImage.jpg",
             let latitude:Double = self.latitude,
             let longitude:Double = self.longitude {
-                let post = Post(content: text, latitude: latitude, longitude: longitude)
+                let post = Post(content: text, imageURL: imageURL, latitude: latitude, longitude: longitude)
                 //投稿されない場合はシミュレータが位置情報を取れていない場合を疑う
                 
                 //画像以外はリクエストできる

@@ -20,16 +20,15 @@ class Post/*: NSObject, CLLocationManagerDelegate*/ {
     var latitude:Double?
     var longitude:Double?
     
-    init(content:String, imageURL:String, latitude:Double, longitude:Double){
-        
+    //init(content:String, imageURL:String, latitude:Double, longitude:Double){
+    init(content:String, latitude:Double, longitude:Double){
         
 
         self.id = app.sharedUserData["id"] as? Int
         self.userName = app.sharedUserData["username"] as? String
         
-        //self.postContent = "投稿文章の内容"
         self.postContent = content
-        self.postImageURL = imageURL
+        //self.postImageURL = imageURL
         
         self.latitude = latitude
         self.longitude = longitude

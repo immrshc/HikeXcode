@@ -16,6 +16,7 @@ class TimeLineController: UICollectionViewController {
     
     override func viewDidLoad() {
        super.viewDidLoad()
+        //imageがテンプレートにあると、ActionView::Template::Error ("\xFF" from ASCII-8BIT to UTF-8):がでる
         TimeLineFetcher().download { (items) -> Void in
             self.postArray = items
             self.collectionView?.reloadData()

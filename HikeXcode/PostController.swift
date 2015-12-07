@@ -44,28 +44,28 @@ class PostController: UIViewController {
             //let image:String = self.postBackIV.sd_imageURL() as? String,
             let latitude:Double = self.latitude,
             let longitude:Double = self.longitude {
-                //let image = String(self.postBackIV.sd_imageURL())
-                let image = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
-                let post = Post(content: text, imageURL: image, latitude: latitude, longitude: longitude)
+                let post = Post(content: text, latitude: latitude, longitude: longitude)
+                //投稿されない場合はシミュレータが位置情報を取れていない場合を疑う
                 
                 //画像以外はリクエストできる
-                PostDispatcher(post: post).download{(result) -> Void in
+                let postWithouotImage = PostDispatcher(post: post)
+                postWithouotImage.download{(result) -> Void in
                     if result {
-                        print("投稿が完了しました")
+                        print("テキストの投稿が完了しました")
+                        //選択された画像をインスタンスにセットする
+                        //postWithouotImage.postBackIV = ????
+                        //画像のアップロードと投稿情報のリクエストをする
+                        postWithouotImage.upload {(result) -> Void in
+                            if result {
+                                print("画像の投稿が完了しました")
+                            } else {
+                                print("画像の投稿が失敗しました")
+                            }
+                        }
                     } else {
-                        print("投稿が失敗しました")
+                        print("テキストの投稿が失敗しました")
                     }
                 }
-                /*
-                //画像のアップロードと投稿情報のリクエストをする(成否は確認中)
-                PostDispatcher(post: post).upload{(result) -> Void in
-                    if result {
-                        print("投稿が完了しました")
-                    } else {
-                        print("投稿が失敗しました")
-                    }
-                }
-                */
         }
         self.dismissViewControllerAnimated(true, completion: nil)
         

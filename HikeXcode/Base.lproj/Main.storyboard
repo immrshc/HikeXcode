@@ -557,17 +557,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-Mg-YB5">
-                                <rect key="frame" x="0.0" y="431" width="320" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="8Ra-ch-Toy"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem systemItem="search" id="bda-I6-GSE"/>
-                                    <tabBarItem systemItem="downloads" id="aXE-3v-OuK"/>
-                                </items>
-                            </tabBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fdz-wQ-TW0">
                                 <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                             </imageView>
@@ -581,6 +570,17 @@
                                 <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-Mg-YB5">
+                                <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="8Ra-ch-Toy"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem systemItem="search" id="bda-I6-GSE"/>
+                                    <tabBarItem tag="1" systemItem="downloads" id="aXE-3v-OuK"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -614,7 +614,7 @@
                     <connections>
                         <outlet property="postBackIV" destination="Fdz-wQ-TW0" id="ToD-hX-uVF"/>
                         <outlet property="postShowTV" destination="bXh-pm-2Jj" id="W3u-n2-jRI"/>
-                        <outlet property="selectImageTB" destination="BRd-Mg-YB5" id="ZxG-wg-DkP"/>
+                        <outlet property="selectImageTB" destination="BRd-Mg-YB5" id="yBu-CH-Ior"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUb-7Y-YeP" userLabel="First Responder" sceneMemberID="firstResponder"/>

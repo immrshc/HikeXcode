@@ -24,14 +24,14 @@ class PostDispatcher {
     
     //画像以外をリクエスト
     func download(callback: (Bool) -> Void){
-        if let id:Int = post?.id,
+        if let token:String = post?.token,
             let userName:String = post?.userName,
             let postContent:String = post?.postContent,
             let latitude:Double = post?.latitude,
             let longitude:Double = post?.longitude {
                 self.params = [
                     "user":[
-                        "id": id,
+                        "token": token,
                         "username": userName],
                     "post":[
                         "text": postContent,
@@ -48,6 +48,8 @@ class PostDispatcher {
                             } else {
                                 callback(false)
                             }
+                    } else {
+                            callback(false)
                     }
                 }
         }
@@ -71,7 +73,7 @@ class PostDispatcher {
                     //エンコード成功時
                     case .Success(let upload, _, _):
                         upload.responseJSON { _, _, result in
-                            print(result)
+                            print("result:\(result)")
                             callback(true)
                     }
                     //エンコード失敗時

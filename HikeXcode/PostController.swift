@@ -44,15 +44,13 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         switch item.tag {
             case 0:
-                print(item.tag)
                 postBackIV.image = UIImage(named:"postBackImage06.jpg")
                 self.imageURL = "postBackImage06.jpg"
             case 1:
-                print(item.tag)
                 //カメラロールへアクセス
                 self.pickImageFromLibrary()
             default:
-                print(item.tag)
+                print("item.tag:\(item.tag)")
         }
     }
     

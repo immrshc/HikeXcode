@@ -22,7 +22,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     //AppDelegateで共有させる
                     //本来はメモリではなく、ストレージに保存させるが、テストのため
                     let app = UIApplication.sharedApplication().delegate as! AppDelegate
-                    app.sharedUserData["id"] = userData.id
+                    app.sharedUserData["token"] = userData.token
                     app.sharedUserData["username"] = userData.username
                     //app.sharedUserData = ["id":userData.id, "username":userData.username, "userIcon":userData.userIcon]
                     //画面遷移する

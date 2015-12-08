@@ -12,13 +12,13 @@ class User{
     
     //{"id":1,"username":"ShoichiImamura","result":true}を格納する
 
-    private(set) var id: Int
-    private(set) var username: String
+    var token: String
+    var username: String
     //private(set) var userIcon: String?
 
     init(json:JSON){
+        self.token = json["token"].stringValue
         self.username = json["username"].stringValue
-        self.id = json["id"].intValue
         //self.userIcon = json["userIcon"].stringValue
         //ユーザのアイコン画像を追加する
     }

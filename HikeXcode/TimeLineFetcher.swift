@@ -18,7 +18,7 @@ class TimeLineFetcher {
     //http://stackoverflow.com/questions/32693150/whats-wrong-here-instance-member-cannot-be-used-on-type
     init(){
         //引数でSwitch文でbaseURLを変更する
-        self.defaultParameter = ["user":["id":(app.sharedUserData["id"]?.integerValue)!]]
+        self.defaultParameter = ["user":["token":(app.sharedUserData["token"])!]]
     }
     
     func download(callback:([TimeLine])->Void){
@@ -31,6 +31,9 @@ class TimeLineFetcher {
                         postArray.append(post)
                     }
                     callback(postArray)
+            } else {
+                callback([])
+                print("tokenが間違っています")
             }
         }
     }

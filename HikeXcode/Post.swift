@@ -13,7 +13,7 @@ class Post/*: NSObject, CLLocationManagerDelegate*/ {
     
     let app = UIApplication.sharedApplication().delegate as! AppDelegate
     //var lm:CLLocationManager!
-    var id:Int?
+    var token:String?
     var userName:String?
     var postContent:String?
     var imageURL:String?
@@ -24,7 +24,7 @@ class Post/*: NSObject, CLLocationManagerDelegate*/ {
     //init(content:String, latitude:Double, longitude:Double){
         
 
-        self.id = app.sharedUserData["id"] as? Int
+        self.token = app.sharedUserData["token"] as? String
         self.userName = app.sharedUserData["username"] as? String
         
         self.postContent = content

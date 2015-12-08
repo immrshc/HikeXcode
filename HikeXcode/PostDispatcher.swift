@@ -16,7 +16,7 @@ class PostDispatcher {
     var params:[String:[String:AnyObject]] = [:]
     var post:Post?
     //指定したリソースファイル名と拡張子から、ファイルのある位置のフルパスをNSURLで返す
-    var fileURL = NSBundle.mainBundle().URLForResource("postBackImage", withExtension: "jpg")!
+    var fileURL = NSBundle.mainBundle().URLForResource("postBackImage02", withExtension: "jpg")!
     
     init(post:Post){
         self.post = post
@@ -53,13 +53,14 @@ class PostDispatcher {
         }
     }
 
-    //画像のアップロードと投稿情報のリクエストをする(成否は確認中)
+    //画像のアップロードと投稿情報のリクエストをする
     func upload(callback: (Bool) -> Void){
+        
         
         if let postImage:NSString = NSString(string: post!.imageURL!) {
                 self.fileURL = NSBundle.mainBundle().URLForResource(postImage.stringByDeletingPathExtension, withExtension: postImage.pathExtension)!
         }
-                
+        
         Alamofire.upload(.POST, uploadURL, multipartFormData: { (multipartFormData) in
             //画像をアップロードする
             multipartFormData.appendBodyPart(fileURL: self.fileURL, name: "image")

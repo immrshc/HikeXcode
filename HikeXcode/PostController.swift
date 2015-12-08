@@ -10,7 +10,7 @@ import UIKit
 
 class PostController: UIViewController, UITabBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    //var imageURL:String = "postBackImage.jpg"
+    var imageURL:String = "postBackImage01.jpg"
     var latitude: Double?
     var longitude: Double?
 
@@ -23,10 +23,10 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
         
         selectImageTB.delegate = self
         
-        postBackIV.image = UIImage(named:"postBackImage.jpg")
+        postBackIV.image = UIImage(named:"postBackImage01.jpg")
 
-        print("画像のファイル名：\(NSString(string: "postBackImage.jpg").stringByDeletingPathExtension)")
-        print("画像の拡張子：\(NSString(string: "postBackImage.jpg").pathExtension)")
+        print("画像のファイル名：\(NSString(string: "postBackImage01.jpg").stringByDeletingPathExtension)")
+        print("画像の拡張子：\(NSString(string: "postBackImage01.jpg").pathExtension)")
 
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         if let latitude = app.sharedUserData["latitude"] as? Double,
@@ -45,6 +45,8 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
         switch item.tag {
             case 0:
                 print(item.tag)
+                postBackIV.image = UIImage(named:"postBackImage06.jpg")
+                self.imageURL = "postBackImage06.jpg"
             case 1:
                 print(item.tag)
                 //カメラロールへアクセス
@@ -88,7 +90,7 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
         if let text:String = self.postShowTV.text,
             //Xcode内の画像のURLを引き渡す
             //画像がカメラロールから選ばれた場合は、AssetLibrary.Frameworkでカメラロールへのパスを取得してimageURLに格納する
-            let imageURL:String = "postBackImage.jpg",
+            let imageURL:String = self.imageURL,
             let latitude:Double = self.latitude,
             let longitude:Double = self.longitude {
                 let post = Post(content: text, imageURL: imageURL, latitude: latitude, longitude: longitude)

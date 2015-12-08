@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E29A32B31C0FD07600112D78 /* postBackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E29A32B21C0FD07600112D78 /* postBackImage.jpg */; };
+		E227EB851C15D82300C1AE2B /* postBackImage01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E227EB841C15D82300C1AE2B /* postBackImage01.jpg */; };
+		E227EB881C15D8F900C1AE2B /* postBackImage02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E227EB861C15D8F900C1AE2B /* postBackImage02.jpg */; };
+		E2472BC21C16EEE500EDEB34 /* postBackImage06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2472BC11C16EEE500EDEB34 /* postBackImage06.jpg */; };
 		E29A32B51C0FDD8600112D78 /* PostDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */; };
 		E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B61C0FDDEF00112D78 /* Post.swift */; };
 		E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC811C0F2B7100F47A22 /* ViewController.swift */; };
@@ -54,8 +56,10 @@
 		5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HikeXcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.release.xcconfig"; sourceTree = "<group>"; };
 		B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.debug.xcconfig"; sourceTree = "<group>"; };
+		E227EB841C15D82300C1AE2B /* postBackImage01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postBackImage01.jpg; sourceTree = "<group>"; };
+		E227EB861C15D8F900C1AE2B /* postBackImage02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postBackImage02.jpg; sourceTree = "<group>"; };
+		E2472BC11C16EEE500EDEB34 /* postBackImage06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postBackImage06.jpg; sourceTree = "<group>"; };
 		E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
-		E29A32B21C0FD07600112D78 /* postBackImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = postBackImage.jpg; path = ../../../Downloads/postBackImage.jpg; sourceTree = "<group>"; };
 		E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDispatcher.swift; sourceTree = "<group>"; };
 		E29A32B61C0FDDEF00112D78 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E29EFC7C1C0F2B7100F47A22 /* HikeXcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikeXcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
-				E29A32B21C0FD07600112D78 /* postBackImage.jpg */,
+				E227EB861C15D8F900C1AE2B /* postBackImage02.jpg */,
+				E227EB841C15D82300C1AE2B /* postBackImage01.jpg */,
+				E2472BC11C16EEE500EDEB34 /* postBackImage06.jpg */,
 				E29EFCCE1C0F30A500F47A22 /* Controller */,
 				E29EFCCF1C0F30AF00F47A22 /* Model */,
 				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
@@ -325,9 +331,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E29A32B31C0FD07600112D78 /* postBackImage.jpg in Resources */,
 				E29EFC8A1C0F2B7100F47A22 /* LaunchScreen.storyboard in Resources */,
 				E29EFC871C0F2B7100F47A22 /* Assets.xcassets in Resources */,
+				E227EB881C15D8F900C1AE2B /* postBackImage02.jpg in Resources */,
+				E227EB851C15D82300C1AE2B /* postBackImage01.jpg in Resources */,
+				E2472BC21C16EEE500EDEB34 /* postBackImage06.jpg in Resources */,
 				E29EFC851C0F2B7100F47A22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

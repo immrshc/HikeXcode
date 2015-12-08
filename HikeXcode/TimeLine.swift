@@ -16,7 +16,8 @@ class TimeLine {
     var favoriteCount:Int = 0
     var username:String?
     var text:String?
-    var imageURL:String = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
+    var imageURL:String = "http://localhost:3000/post/show_image?post[id]=31"
+    //var imageURL:String = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
     var latitude:Double?
     var longitude:Double?
     
@@ -27,8 +28,8 @@ class TimeLine {
         self.text = json["text"].stringValue
         //URLを取得してsd_setImageWithURLで取得する
         //nilでなく文字列が指定されているならばURLとする
-        if json["image"] != nil && json["image"].stringValue.utf16.count != 0 {
-            self.imageURL = json["image"].stringValue
+        if json["imageURL"] != nil && json["imageURL"].stringValue.utf16.count != 0 {
+            self.imageURL = json["imageURL"].stringValue
         }
         self.latitude = json["latitude"].doubleValue
         self.longitude = json["longitude"].doubleValue

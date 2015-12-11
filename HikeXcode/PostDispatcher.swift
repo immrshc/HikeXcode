@@ -73,8 +73,8 @@ class PostDispatcher {
                     //エンコード成功時
                     case .Success(let upload, _, _):
                         upload.responseJSON { _, _, result in
-                            print("result:\(result)")
-                            callback(true)
+                            print("result:\(result.isSuccess)")
+                            callback(result.isSuccess)
                     }
                     //エンコード失敗時
                     case .Failure(let encodingError):

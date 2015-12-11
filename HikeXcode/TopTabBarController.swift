@@ -24,13 +24,13 @@ class TopTabBarController: UITabBarController, CLLocationManagerDelegate {
         latitude = CLLocationDegrees()
         
         lm.delegate = self
-        // 位置情報取得の許可
+        //位置情報取得の許可
         lm.requestAlwaysAuthorization()
-        // 位置情報の精度
+        //位置情報の精度
         lm.desiredAccuracy = kCLLocationAccuracyBest
-        // 指定した値分移動したら位置情報を更新する
+        //指定した値分移動したら位置情報を更新する
         lm.distanceFilter = 500
-        // GPSの使用を開始する
+        //GPSの使用を開始する
         lm.startUpdatingLocation()
         
     }

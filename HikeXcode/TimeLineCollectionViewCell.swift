@@ -15,6 +15,7 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var favoriteIconBtn: UIButton!
+    @IBOutlet weak var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     
     func displayUpdate(timeline: TimeLine){
         self.post = timeline
@@ -43,6 +44,16 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
             //お気に入り状態とお気に入り数を変更する
             post.changeFavoriteState()
             favoriteCountLabel.text = String(post.favoriteCount)
+        }
+    }
+    
+    /*
+    First, this code calls the super implementation to make sure that the standard attributes are applied. Then, it casts the attributes object into an instance of PinterestLayoutAttributes to obtain the photo height and then changes the image view height by setting the imageViewHeightLayoutConstraint constant value.
+    */
+    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.applyLayoutAttributes(layoutAttributes)
+        if let attributes = layoutAttributes as? PinterestLayoutAttributes {
+            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
         }
     }
     

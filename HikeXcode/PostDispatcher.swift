@@ -16,7 +16,7 @@ class PostDispatcher {
     var params:[String:[String:AnyObject]] = [:]
     var post:Post?
     //指定したリソースファイル名と拡張子から、ファイルのある位置のフルパスをNSURLで返す
-    var fileURL = NSBundle.mainBundle().URLForResource("postBackImage02", withExtension: "jpg")!
+    var fileURL = NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!
     
     init(post:Post){
         self.post = post

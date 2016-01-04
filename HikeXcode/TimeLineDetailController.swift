@@ -33,6 +33,7 @@ class TimeLineDetailController: UIViewController {
             //view.addSubview(favoriteIconBtn)
             //上のようにviewに追加するとボタンが再生成されて位置が変わる
         
+            //お気に入りされているかどうかでボタンの色を変える
             if self.post.favoriteCheck {
                 self.favoriteIconBtn.setTitleColor(UIColor.yellowColor(), forState: .Normal)
             } else {

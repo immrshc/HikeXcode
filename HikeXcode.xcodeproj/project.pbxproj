@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E227EB851C15D82300C1AE2B /* postBackImage01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E227EB841C15D82300C1AE2B /* postBackImage01.jpg */; };
-		E227EB881C15D8F900C1AE2B /* postBackImage02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E227EB861C15D8F900C1AE2B /* postBackImage02.jpg */; };
-		E2472BC21C16EEE500EDEB34 /* postBackImage06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2472BC11C16EEE500EDEB34 /* postBackImage06.jpg */; };
+		E28CE42E1C367C2F00A69737 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28CE42D1C367C2F00A69737 /* PinterestLayout.swift */; };
+		E28CE4371C3680C600A69737 /* Image06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4321C3680C600A69737 /* Image06.jpg */; };
+		E28CE4381C3680C600A69737 /* Image05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4331C3680C600A69737 /* Image05.jpg */; };
+		E28CE4391C3680C600A69737 /* Image01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4341C3680C600A69737 /* Image01.jpg */; };
+		E28CE43A1C3680C600A69737 /* Image02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4351C3680C600A69737 /* Image02.jpg */; };
+		E28CE43B1C3680C600A69737 /* Image03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4361C3680C600A69737 /* Image03.jpg */; };
 		E29A32B51C0FDD8600112D78 /* PostDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */; };
 		E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B61C0FDDEF00112D78 /* Post.swift */; };
 		E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC811C0F2B7100F47A22 /* ViewController.swift */; };
@@ -56,9 +59,12 @@
 		5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HikeXcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.release.xcconfig"; sourceTree = "<group>"; };
 		B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.debug.xcconfig"; sourceTree = "<group>"; };
-		E227EB841C15D82300C1AE2B /* postBackImage01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postBackImage01.jpg; sourceTree = "<group>"; };
-		E227EB861C15D8F900C1AE2B /* postBackImage02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postBackImage02.jpg; sourceTree = "<group>"; };
-		E2472BC11C16EEE500EDEB34 /* postBackImage06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = postBackImage06.jpg; sourceTree = "<group>"; };
+		E28CE42D1C367C2F00A69737 /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		E28CE4321C3680C600A69737 /* Image06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image06.jpg; path = ../../../Downloads/Image06.jpg; sourceTree = "<group>"; };
+		E28CE4331C3680C600A69737 /* Image05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image05.jpg; path = ../../../Downloads/Image05.jpg; sourceTree = "<group>"; };
+		E28CE4341C3680C600A69737 /* Image01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image01.jpg; path = ../../../Downloads/Image01.jpg; sourceTree = "<group>"; };
+		E28CE4351C3680C600A69737 /* Image02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image02.jpg; path = ../../../Downloads/Image02.jpg; sourceTree = "<group>"; };
+		E28CE4361C3680C600A69737 /* Image03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image03.jpg; path = ../../../Downloads/Image03.jpg; sourceTree = "<group>"; };
 		E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
 		E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDispatcher.swift; sourceTree = "<group>"; };
 		E29A32B61C0FDDEF00112D78 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -133,6 +139,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E28CE42C1C367BFA00A69737 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				E28CE42D1C367C2F00A69737 /* PinterestLayout.swift */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		E28CE42F1C367C9800A69737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E29EFCBA1C0F308900F47A22 /* TimeLineCollectionViewCell.swift */,
+				E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E28CE4301C36802300A69737 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				E28CE4321C3680C600A69737 /* Image06.jpg */,
+				E28CE4331C3680C600A69737 /* Image05.jpg */,
+				E28CE4341C3680C600A69737 /* Image01.jpg */,
+				E28CE4351C3680C600A69737 /* Image02.jpg */,
+				E28CE4361C3680C600A69737 /* Image03.jpg */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
+		E28CE4311C36803700A69737 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				E28CE4301C36802300A69737 /* Photo */,
+			);
+			name = Asset;
+			sourceTree = "<group>";
+		};
 		E29EFC731C0F2B7100F47A22 = {
 			isa = PBXGroup;
 			children = (
@@ -158,11 +201,11 @@
 		E29EFC7E1C0F2B7100F47A22 /* HikeXcode */ = {
 			isa = PBXGroup;
 			children = (
+				E28CE4311C36803700A69737 /* Asset */,
 				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
-				E227EB861C15D8F900C1AE2B /* postBackImage02.jpg */,
-				E227EB841C15D82300C1AE2B /* postBackImage01.jpg */,
-				E2472BC11C16EEE500EDEB34 /* postBackImage06.jpg */,
 				E29EFCCE1C0F30A500F47A22 /* Controller */,
+				E28CE42F1C367C9800A69737 /* View */,
+				E28CE42C1C367BFA00A69737 /* Layout */,
 				E29EFCCF1C0F30AF00F47A22 /* Model */,
 				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
 				E29EFC861C0F2B7100F47A22 /* Assets.xcassets */,
@@ -198,11 +241,9 @@
 				E29EFCB71C0F308900F47A22 /* LoginController.swift */,
 				E29EFCB81C0F308900F47A22 /* PostController.swift */,
 				E29EFCBE1C0F308900F47A22 /* TopTabBarController.swift */,
-				E29EFCBA1C0F308900F47A22 /* TimeLineCollectionViewCell.swift */,
 				E29EFCBB1C0F308900F47A22 /* TimeLineController.swift */,
 				E29EFCBC1C0F308900F47A22 /* TimeLineDetailController.swift */,
 				E29EFCB41C0F308900F47A22 /* AccountCollectionViewController.swift */,
-				E29EFCB31C0F308900F47A22 /* AccountCollectionViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -332,11 +373,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29EFC8A1C0F2B7100F47A22 /* LaunchScreen.storyboard in Resources */,
+				E28CE4391C3680C600A69737 /* Image01.jpg in Resources */,
+				E28CE43A1C3680C600A69737 /* Image02.jpg in Resources */,
+				E28CE4381C3680C600A69737 /* Image05.jpg in Resources */,
 				E29EFC871C0F2B7100F47A22 /* Assets.xcassets in Resources */,
-				E227EB881C15D8F900C1AE2B /* postBackImage02.jpg in Resources */,
-				E227EB851C15D82300C1AE2B /* postBackImage01.jpg in Resources */,
-				E2472BC21C16EEE500EDEB34 /* postBackImage06.jpg in Resources */,
+				E28CE43B1C3680C600A69737 /* Image03.jpg in Resources */,
 				E29EFC851C0F2B7100F47A22 /* Main.storyboard in Resources */,
+				E28CE4371C3680C600A69737 /* Image06.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +458,7 @@
 				E29EFCCD1C0F308900F47A22 /* UserFetcher.swift in Sources */,
 				E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */,
 				E29EFCC41C0F308900F47A22 /* LoginController.swift in Sources */,
+				E28CE42E1C367C2F00A69737 /* PinterestLayout.swift in Sources */,
 				E29EFCB21C0F302C00F47A22 /* AppDelegate.swift in Sources */,
 				E29EFCCA1C0F308900F47A22 /* TimeLineFetcher.swift in Sources */,
 				E29EFCCC1C0F308900F47A22 /* User.swift in Sources */,

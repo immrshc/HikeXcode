@@ -9,14 +9,12 @@
 import SwiftyJSON
 
 class TimeLine {
-    /*
-    {"favorite":true,"favorite_count":3,"username":"ShoichiImamura","text":"これがはじめての投稿です","image":"MyString"}
-    */
+
     var favoriteCheck:Bool = false
     var favoriteCount:Int = 0
     var username:String?
     var text:String?
-    var imageURL:String = String(NSBundle.mainBundle().URLForResource("postBackImage02", withExtension: "jpg")!)
+    var imageURL:String = String(NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!)
     //var imageURL:String = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
     var latitude:Double?
     var longitude:Double?
@@ -44,4 +42,12 @@ class TimeLine {
         }
         self.favoriteCheck = !self.favoriteCheck
     }
+    
+    //投稿文のラベルの高さを返す
+    func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
+        let rect = NSString(string: text!).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        //数値式以上の最小の整数を戻す
+        return ceil(rect.height)
+    }
+    
 }

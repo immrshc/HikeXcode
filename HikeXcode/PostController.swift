@@ -10,12 +10,15 @@ import UIKit
 
 class PostController: UIViewController, UITabBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var imageURL:String = "postBackImage01.jpg"
+    var imageURL:String = "Image01.jpg"
     var latitude: Double?
     var longitude: Double?
-
+    
+    //投稿画面の背景画像
     @IBOutlet weak var postBackIV: UIImageView!
+    //投稿内容のテキスト
     @IBOutlet weak var postShowTV: UITextView!
+    //投稿画面の画像選択用のタブ
     @IBOutlet weak var selectImageTB: UITabBar!
     
     override func viewDidLoad() {
@@ -23,11 +26,12 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
         
         selectImageTB.delegate = self
         
-        postBackIV.image = UIImage(named:"postBackImage01.jpg")
+        postBackIV.image = UIImage(named:"Image01.jpg")
 
-        print("画像のファイル名：\(NSString(string: "postBackImage01.jpg").stringByDeletingPathExtension)")
-        print("画像の拡張子：\(NSString(string: "postBackImage01.jpg").pathExtension)")
-
+        print("画像のファイル名：\(NSString(string: "Image01.jpg").stringByDeletingPathExtension)")
+        print("画像の拡張子：\(NSString(string: "Image01.jpg").pathExtension)")
+        
+        //取得した位置情報を設定する
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         if let latitude = app.sharedUserData["latitude"] as? Double,
             let longitude = app.sharedUserData["longitude"] as? Double {
@@ -44,8 +48,8 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         switch item.tag {
             case 0:
-                postBackIV.image = UIImage(named:"postBackImage06.jpg")
-                self.imageURL = "postBackImage06.jpg"
+                postBackIV.image = UIImage(named:"Image06.jpg")
+                self.imageURL = "Image06.jpg"
             case 1:
                 //カメラロールへアクセス
                 self.pickImageFromLibrary()
@@ -67,7 +71,7 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
     //写真を選択した時に呼ばれる
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if info[UIImagePickerControllerOriginalImage] != nil {
-            
+            //背景に画像を設定する
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 self.postBackIV.image = image
             }
@@ -80,10 +84,12 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
         }
     }
     
+    //元の画面に戻る
     @IBAction func cancelPost(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    //投稿ボタンの処理
     @IBAction func doPost(sender: AnyObject) {
         if let text:String = self.postShowTV.text,
             //Xcode内の画像のURLを引き渡す
@@ -94,14 +100,14 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
                 let post = Post(content: text, imageURL: imageURL, latitude: latitude, longitude: longitude)
                 //投稿されない場合はシミュレータが位置情報を取れていない場合を疑う
                 
-                //画像以外はリクエストできる
+                //画像以外をリクエストする
                 let postWithouotImage = PostDispatcher(post: post)
                 postWithouotImage.download{(result) -> Void in
                     if result {
                         print("テキストの投稿が完了しました")
                         //選択された画像をインスタンスにセットする
                         //postWithouotImage.postBackIV = ????
-                        //画像のアップロードと投稿情報のリクエストをする
+                        //画像をアップロードする
                         postWithouotImage.upload {(result) -> Void in
                             if result {
                                 print("画像の投稿が完了しました")

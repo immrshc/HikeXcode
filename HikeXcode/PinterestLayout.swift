@@ -140,14 +140,17 @@ class PinterestLayout: UICollectionViewLayout {
         return layoutAttributes
     }
     
-    
+    /*
     //引数で指定されたNSIndexPathに対応する補助要素のレイアウト情報を返すメソッドで、第一引数でフッターかヘッダーかを示す定数値が渡される
     override func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
         let attributes = super.layoutAttributesForSupplementaryViewOfKind(elementKind, atIndexPath: indexPath)
-        attributes!.frame = CGRect(x: 0, y: 0, width: collectionView!.bounds.size.width, height: 200)
+        attributes!.frame = CGRect(x: 0, y: 0, width: collectionView!.bounds.size.width, height: 230)
         return attributes
     }
+    */
+    
+    
     
     /*
     This overrides layoutAttributesClass() to tell the collection view to use PinterestLayoutAttributes whenever it creates layout attributes objects.

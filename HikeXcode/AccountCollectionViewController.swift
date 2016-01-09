@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class AccountCollectionViewController: UICollectionViewController, PinterestLayoutDelegate {
+class AccountCollectionViewController: UICollectionViewController, PinterestLayoutDelegate,UICollectionViewDelegateFlowLayout {
     
     var postArray:[TimeLine] = []
     var refreshControl:UIRefreshControl!
@@ -31,16 +31,17 @@ class AccountCollectionViewController: UICollectionViewController, PinterestLayo
         self.collectionView!.addSubview(refreshControl)
         
         //Pinterestのプロトコルを後で実装する
-        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+        if let layout = collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
         
         //余白の長方形を設定する
         collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
-        
 
     }
     
+    
+
     //投稿画面へ遷移する
     @IBAction func postDo(sender: AnyObject) {
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostNC")

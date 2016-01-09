@@ -13,6 +13,11 @@
 		E28CE4391C3680C600A69737 /* Image01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4341C3680C600A69737 /* Image01.jpg */; };
 		E28CE43A1C3680C600A69737 /* Image02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4351C3680C600A69737 /* Image02.jpg */; };
 		E28CE43B1C3680C600A69737 /* Image03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E28CE4361C3680C600A69737 /* Image03.jpg */; };
+		E292A27A1C40A0F6003D079F /* TimeLineHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E292A2791C40A0F6003D079F /* TimeLineHeader.xib */; };
+		E292A27C1C40A3CC003D079F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292A27B1C40A3CC003D079F /* TestViewController.swift */; };
+		E292A27E1C40AC45003D079F /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292A27D1C40AC45003D079F /* HeaderReusableView.swift */; };
+		E292A2801C40B184003D079F /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292A27F1C40B184003D079F /* TestCollectionViewCell.swift */; };
+		E292A2821C40BF98003D079F /* TestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292A2811C40BF98003D079F /* TestLayout.swift */; };
 		E29A32B51C0FDD8600112D78 /* PostDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */; };
 		E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A32B61C0FDDEF00112D78 /* Post.swift */; };
 		E29EFC821C0F2B7100F47A22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29EFC811C0F2B7100F47A22 /* ViewController.swift */; };
@@ -65,6 +70,11 @@
 		E28CE4341C3680C600A69737 /* Image01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image01.jpg; path = ../../../Downloads/Image01.jpg; sourceTree = "<group>"; };
 		E28CE4351C3680C600A69737 /* Image02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image02.jpg; path = ../../../Downloads/Image02.jpg; sourceTree = "<group>"; };
 		E28CE4361C3680C600A69737 /* Image03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image03.jpg; path = ../../../Downloads/Image03.jpg; sourceTree = "<group>"; };
+		E292A2791C40A0F6003D079F /* TimeLineHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeLineHeader.xib; sourceTree = "<group>"; };
+		E292A27B1C40A3CC003D079F /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		E292A27D1C40AC45003D079F /* HeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
+		E292A27F1C40B184003D079F /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		E292A2811C40BF98003D079F /* TestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLayout.swift; sourceTree = "<group>"; };
 		E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HikeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
 		E29A32B41C0FDD8600112D78 /* PostDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDispatcher.swift; sourceTree = "<group>"; };
 		E29A32B61C0FDDEF00112D78 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -143,6 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				E28CE42D1C367C2F00A69737 /* PinterestLayout.swift */,
+				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
+				E29EFC881C0F2B7100F47A22 /* LaunchScreen.storyboard */,
+				E292A2791C40A0F6003D079F /* TimeLineHeader.xib */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -176,6 +189,17 @@
 			name = Asset;
 			sourceTree = "<group>";
 		};
+		E28D84B91C419722002D7DF5 /* Test for Layout */ = {
+			isa = PBXGroup;
+			children = (
+				E292A27B1C40A3CC003D079F /* TestViewController.swift */,
+				E292A27D1C40AC45003D079F /* HeaderReusableView.swift */,
+				E292A27F1C40B184003D079F /* TestCollectionViewCell.swift */,
+				E292A2811C40BF98003D079F /* TestLayout.swift */,
+			);
+			name = "Test for Layout";
+			sourceTree = "<group>";
+		};
 		E29EFC731C0F2B7100F47A22 = {
 			isa = PBXGroup;
 			children = (
@@ -201,15 +225,14 @@
 		E29EFC7E1C0F2B7100F47A22 /* HikeXcode */ = {
 			isa = PBXGroup;
 			children = (
+				E28D84B91C419722002D7DF5 /* Test for Layout */,
 				E28CE4311C36803700A69737 /* Asset */,
 				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
 				E29EFCCE1C0F30A500F47A22 /* Controller */,
 				E28CE42F1C367C9800A69737 /* View */,
 				E28CE42C1C367BFA00A69737 /* Layout */,
 				E29EFCCF1C0F30AF00F47A22 /* Model */,
-				E29EFC831C0F2B7100F47A22 /* Main.storyboard */,
 				E29EFC861C0F2B7100F47A22 /* Assets.xcassets */,
-				E29EFC881C0F2B7100F47A22 /* LaunchScreen.storyboard */,
 				E29EFC8B1C0F2B7100F47A22 /* Info.plist */,
 				E29A32B01C0FC2FE00112D78 /* HikeXcode-Bridging-Header.h */,
 			);
@@ -377,6 +400,7 @@
 				E28CE43A1C3680C600A69737 /* Image02.jpg in Resources */,
 				E28CE4381C3680C600A69737 /* Image05.jpg in Resources */,
 				E29EFC871C0F2B7100F47A22 /* Assets.xcassets in Resources */,
+				E292A27A1C40A0F6003D079F /* TimeLineHeader.xib in Resources */,
 				E28CE43B1C3680C600A69737 /* Image03.jpg in Resources */,
 				E29EFC851C0F2B7100F47A22 /* Main.storyboard in Resources */,
 				E28CE4371C3680C600A69737 /* Image06.jpg in Resources */,
@@ -453,11 +477,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29EFCC61C0F308900F47A22 /* TimeLine.swift in Sources */,
+				E292A27C1C40A3CC003D079F /* TestViewController.swift in Sources */,
+				E292A27E1C40AC45003D079F /* HeaderReusableView.swift in Sources */,
+				E292A2801C40B184003D079F /* TestCollectionViewCell.swift in Sources */,
 				E29EFCCB1C0F308900F47A22 /* TopTabBarController.swift in Sources */,
 				E29EFCC21C0F308900F47A22 /* AccountCollectionViewController.swift in Sources */,
 				E29EFCCD1C0F308900F47A22 /* UserFetcher.swift in Sources */,
 				E29A32B71C0FDDEF00112D78 /* Post.swift in Sources */,
 				E29EFCC41C0F308900F47A22 /* LoginController.swift in Sources */,
+				E292A2821C40BF98003D079F /* TestLayout.swift in Sources */,
 				E28CE42E1C367C2F00A69737 /* PinterestLayout.swift in Sources */,
 				E29EFCB21C0F302C00F47A22 /* AppDelegate.swift in Sources */,
 				E29EFCCA1C0F308900F47A22 /* TimeLineFetcher.swift in Sources */,

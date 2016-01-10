@@ -1,16 +1,17 @@
 //
-//  AccountCollectionViewController.swift
+//  AccountViewController.swift
 //  HikeXcode
 //
-//  Created by 今村翔一 on 2015/11/28.
-//  Copyright © 2015年 今村翔一. All rights reserved.
+//  Created by 今村翔一 on 2016/01/10.
+//  Copyright © 2016年 今村翔一. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
-class AccountCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PinterestLayoutDelegate {
+class AccountViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PinterestLayoutDelegate {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var postArray:[TimeLine] = []
     var refreshControl:UIRefreshControl!
     var selectedIndex:NSInteger!
@@ -31,17 +32,16 @@ class AccountCollectionViewController: UIViewController, UICollectionViewDataSou
         self.collectionView!.addSubview(refreshControl)
         
         //Pinterestのプロトコルを後で実装する
-        if let layout = collectionViewLayout as? PinterestLayout {
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayoutWithHeader {
             layout.delegate = self
         }
         
-        //余白の長方形を設定する
-        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
-
+        //xibファイルを登録
+        let nib = UINib(nibName: "AccountHeader", bundle: nil)
+        collectionView.registerNib(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "AccountHeader")
+        collectionView.reloadData()
     }
     
-    
-
     //投稿画面へ遷移する
     @IBAction func postDo(sender: AnyObject) {
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PostNC")
@@ -64,29 +64,36 @@ class AccountCollectionViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
-    //ヘッダーの生成
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        if kind != UICollectionElementKindSectionHeader {
-            return super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath)
-        }
-        let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AccountHeader", forIndexPath: indexPath) as! AccountCollectionViewCell
+    //セル数の指定
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.postArray.count
+    }
+    
+    //セルの生成
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TimeLineCell", forIndexPath: indexPath) as! TimeLineCollectionViewCell
+        cell.displayUpdate(self.postArray[indexPath.row])
+        return cell
+    }
+    
+    //セクション数の指定
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    //ヘッダーをXibファイルから生成
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "AccountHeader", forIndexPath: indexPath) as! AccountHeaderReusableView
         header.displayUpdate()
         let changePostTapBtn:UISegmentedControl = header.changePostTapBtn
         self.selectedIndex = changePostTapBtn.selectedSegmentIndex
         changePostTapBtn.addTarget(self, action: "postUpdate:", forControlEvents: UIControlEvents.ValueChanged)
         header.addSubview(changePostTapBtn)
         return header
+        
     }
     
-    /*
-    //ヘッダーのサイズの設定
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            let size = CGSize(width: self.view.bounds.width, height: 100)
-            return size
-    }
-    */
-
-
     //選択されたタブのインデックスで表示を変更する
     func postUpdate(segcon: UISegmentedControl){
         self.selectedIndex = segcon.selectedSegmentIndex
@@ -96,20 +103,8 @@ class AccountCollectionViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
-    //セル数の指定
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.postArray.count
-    }
-    
-    //セルの生成
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AccountCell", forIndexPath: indexPath) as! TimeLineCollectionViewCell
-        cell.displayUpdate(self.postArray[indexPath.row])
-        return cell
-    }
-    
     //詳細画面への遷移
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TimeLineDetailVC") as? TimeLineDetailController {
             vc.post = self.postArray[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
@@ -134,13 +129,14 @@ class AccountCollectionViewController: UIViewController, UICollectionViewDataSou
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
             let annotationPadding = CGFloat(4)
-            let favoriteHeaderHeight = CGFloat(17)
+            let favoriteHeaderHeight = CGFloat(20)
             let post = postArray[indexPath.row]
-            let font = UIFont(name: "Times New Roman", size: 10)!
+            let font = UIFont(name: "Times New Roman", size: 13)!
             //フォントとセルの幅からラベルの高さを返す
             let commentHeight = post.heightForComment(font, width: width)
             let height = annotationPadding + favoriteHeaderHeight + commentHeight + annotationPadding
+            print("height at Account: \(height)")
             return height
     }
-
+    
 }

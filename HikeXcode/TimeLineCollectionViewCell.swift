@@ -50,11 +50,12 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     /*
     First, this code calls the super implementation to make sure that the standard attributes are applied. Then, it casts the attributes object into an instance of PinterestLayoutAttributes to obtain the photo height and then changes the image view height by setting the imageViewHeightLayoutConstraint constant value.
     */
+    
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
         super.applyLayoutAttributes(layoutAttributes)
-        if let attributes = layoutAttributes as? PinterestLayoutAttributes {
-            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
+        if let attributes = PinterestLayout()._layoutAttributes["0_0"] {
+            imageViewHeightLayoutConstraint.constant = attributes.size.height
         }
     }
-    
+
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountCollectionViewCell: UICollectionViewCell {
+class AccountHeaderReusableView: UICollectionReusableView {
 
     //CollectionVIewのヘッダー
     @IBOutlet weak var userNameLabel: UILabel!

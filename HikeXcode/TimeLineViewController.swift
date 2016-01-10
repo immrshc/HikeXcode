@@ -10,7 +10,9 @@ import UIKit
 import MapKit
 import AVFoundation
 
-class TimeLineController: UICollectionViewController, PinterestLayoutDelegate {
+class TimeLineViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PinterestLayoutDelegate {
+    
+    @IBOutlet var collectionView: UICollectionView!
     
     var postArray:[TimeLine] = []
     var refreshControl:UIRefreshControl!
@@ -34,9 +36,6 @@ class TimeLineController: UICollectionViewController, PinterestLayoutDelegate {
         if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
-        
-        //余白の長方形を設定する
-        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
         
     }
     
@@ -63,19 +62,24 @@ class TimeLineController: UICollectionViewController, PinterestLayoutDelegate {
     }
     
     //セル数の指定
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.postArray.count
     }
     
     //セルの生成
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TimeLineCell", forIndexPath: indexPath) as! TimeLineCollectionViewCell
         cell.displayUpdate(postArray[indexPath.row])
         return cell
     }
     
+    //セクション数の指定
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     //詳細画面への遷移
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TimeLineDetailVC") as? TimeLineDetailController {
             vc.post = self.postArray[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
@@ -100,12 +104,13 @@ class TimeLineController: UICollectionViewController, PinterestLayoutDelegate {
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
             let annotationPadding = CGFloat(4)
-            let favoriteHeaderHeight = CGFloat(17)
+            let favoriteHeaderHeight = CGFloat(20)
             let post = postArray[indexPath.row]
-            let font = UIFont(name: "Times New Roman", size: 10)!
+            let font = UIFont(name: "Times New Roman", size: 13)!
             //フォントとセルの幅からラベルの高さを返す
             let commentHeight = post.heightForComment(font, width: width)
             let height = annotationPadding + favoriteHeaderHeight + commentHeight + annotationPadding
+            print("height at TimeLine: \(height)")
             return height
     }
     

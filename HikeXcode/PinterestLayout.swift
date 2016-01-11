@@ -18,10 +18,30 @@ protocol PinterestLayoutDelegate {
     
 }
 
+class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
+    
+    var photoHeight:CGFloat = 0.0
+    
+    override func copyWithZone(zone: NSZone) -> AnyObject {
+        let copy = super.copyWithZone(zone) as! PinterestLayoutAttributes
+        copy.photoHeight = photoHeight
+        return copy
+    }
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let attributes = object as? PinterestLayoutAttributes {
+            if attributes.photoHeight == photoHeight {
+                return super.isEqual(object)
+            }
+        }
+        return false
+    }
+}
+
 class PinterestLayout: UICollectionViewLayout {
     
     var delegate: PinterestLayoutDelegate!
-    var _layoutAttributes = Dictionary<String, UICollectionViewLayoutAttributes>()
+    var _layoutAttributes = Dictionary<String, PinterestLayoutAttributes>()
     var numberOfColumns = 2 //列の数
     var cellPadding:CGFloat = 6.0 //セルの余白
     var contentHeight:CGFloat = 80.0
@@ -36,9 +56,8 @@ class PinterestLayout: UICollectionViewLayout {
     override func prepareLayout() {
         super.prepareLayout()
         
-        _layoutAttributes = Dictionary<String, UICollectionViewLayoutAttributes>() // 1
+        _layoutAttributes = Dictionary<String, PinterestLayoutAttributes>() // 1
         /*
-        let headerHeight = CGFloat(0)
         let path = NSIndexPath(forItem: 0, inSection: 0)
         let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withIndexPath: path)
         
@@ -65,18 +84,27 @@ class PinterestLayout: UICollectionViewLayout {
             for var item = 0; item < numberOfItems; item++ {
                 
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
+                //セルの幅
                 let width = columnWidth - cellPadding * 2
+                //セルの写真の高さ
                 let photoHeight = delegate.collectionView(collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
+                //print("photoHeight at PinterestLayout: \(photoHeight)")//312.0が一般的
+                //セルの投稿文とお気に入り部分の高さ
                 let annotationHeight = delegate.collectionView(collectionView!,
-                    heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+                    heightForAnnotationAtIndexPath: indexPath, withWidth: width)//43.0が一般的
+                print("annotationHeight at PinterestLayout: \(annotationHeight)")
+                //セル全体の高さ
                 let height = cellPadding +  photoHeight + annotationHeight + cellPadding
-                //let height = cellPadding +  height + cellPadding
+                //print("height at PinterestLayout: \(height)")
+                //セル全体のサイズ
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
+                //余白部分を無くしたセル全体のサイズ
                 let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
-                let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.size.width = width
-                //attributes.size.height = height
-                attributes.size.height = photoHeight
+                
+                //let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                let attributes = PinterestLayoutAttributes(forCellWithIndexPath: indexPath)
+                //attributes.size.width = width
+                attributes.photoHeight = photoHeight
                 attributes.frame = insetFrame
                 let key = layoutKeyForIndexPath(indexPath)
                 _layoutAttributes[key] = attributes
@@ -99,10 +127,6 @@ class PinterestLayout: UICollectionViewLayout {
         return "\(indexPath.section)_\(indexPath.row)"
     }
     
-    func layoutKeyForHeaderAtIndexPath(indexPath : NSIndexPath) -> String {
-        return "s_\(indexPath.section)_\(indexPath.row)"
-    }
-    
     // MARK:
     // MARK: Invalidate
     
@@ -114,7 +138,7 @@ class PinterestLayout: UICollectionViewLayout {
     // MARK: Required methods
     
     override func collectionViewContentSize() -> CGSize {
-        //return _contentSize
+        //print("contentHeight: \(contentHeight)")
         return CGSize(width: contentWidth, height: contentHeight)
     }
     
@@ -143,7 +167,7 @@ class PinterestLayout: UICollectionViewLayout {
         let keys = dict.allKeys as NSArray
         let matchingKeys = keys.filteredArrayUsingPredicate(predicate)
         
-        return dict.objectsForKeys(matchingKeys, notFoundMarker: NSNull()) as? [UICollectionViewLayoutAttributes]
+        return dict.objectsForKeys(matchingKeys, notFoundMarker: NSNull()) as? [PinterestLayoutAttributes]
     }
     
 }

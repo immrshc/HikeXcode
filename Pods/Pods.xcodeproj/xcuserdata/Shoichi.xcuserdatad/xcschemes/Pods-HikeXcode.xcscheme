@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40E6D479527A7080E7811532"
+               BlueprintIdentifier = "BE8BF022C1B3D064C88C54EE"
                BuildableName = "Pods_HikeXcode.framework"
                BlueprintName = "Pods-HikeXcode"
                ReferencedContainer = "container:Pods.xcodeproj">

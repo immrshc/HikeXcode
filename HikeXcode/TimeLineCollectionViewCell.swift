@@ -53,9 +53,11 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
         super.applyLayoutAttributes(layoutAttributes)
-        if let attributes = PinterestLayout()._layoutAttributes["0_0"] {
-            imageViewHeightLayoutConstraint.constant = attributes.size.height
+        if let attributes = layoutAttributes as? PinterestLayoutAttributes {
+            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
+            //print("attributes.photoHeight: \(attributes.photoHeight)")
         }
+        //print(layoutAttributes.size)//photoHeight(312.0)ではなくセル全体の高さ(355.0)が格納されている
     }
 
 }

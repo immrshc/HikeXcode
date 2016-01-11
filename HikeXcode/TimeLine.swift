@@ -45,8 +45,9 @@ class TimeLine {
     
     //投稿文のラベルの高さを返す
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
-        let rect = NSString(string: text!).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let rect = NSString(string: self.text!).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         //数値式以上の最小の整数を戻す
+        //print("ceil(rect.height): \(ceil(rect.height))")
         return ceil(rect.height)
     }
     

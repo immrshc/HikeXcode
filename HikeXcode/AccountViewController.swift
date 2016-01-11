@@ -128,14 +128,15 @@ class AccountViewController: UIViewController, UICollectionViewDataSource, UICol
     //投稿文の長さに応じて写真以外のセルの高さを調整する
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-            let annotationPadding = CGFloat(4)
+            let annotationPadding = CGFloat(14) + CGFloat(5)
             let favoriteHeaderHeight = CGFloat(20)
             let post = postArray[indexPath.row]
-            let font = UIFont(name: "Times New Roman", size: 13)!
+            let font = UIFont(name: "Times New Roman", size: 20)!
             //フォントとセルの幅からラベルの高さを返す
             let commentHeight = post.heightForComment(font, width: width)
-            let height = annotationPadding + favoriteHeaderHeight + commentHeight + annotationPadding
-            print("height at Account: \(height)")
+            let height = annotationPadding + favoriteHeaderHeight + commentHeight
+            //print("commentHeight at Account: \(commentHeight)")
+            //print("height at Account: \(height)")
             return height
     }
     

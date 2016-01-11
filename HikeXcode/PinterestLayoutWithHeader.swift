@@ -12,9 +12,9 @@ class PinterestLayoutWithHeader: PinterestLayout {
     override func prepareLayout() {
         super.prepareLayout()
         
-        _layoutAttributes = Dictionary<String, UICollectionViewLayoutAttributes>() // 1
+        _layoutAttributes = Dictionary<String, PinterestLayoutAttributes>() // 1
         let path = NSIndexPath(forItem: 0, inSection: 0)
-        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withIndexPath: path)
+        let attributes = PinterestLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withIndexPath: path)
         
         let headerHeight = CGFloat(130)
         attributes.frame = CGRectMake(0, 0, self.collectionView!.frame.size.width, headerHeight)
@@ -41,16 +41,19 @@ class PinterestLayoutWithHeader: PinterestLayout {
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
                 let width = columnWidth - cellPadding * 2
                 let photoHeight = delegate.collectionView(collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
+                //print("photoHeight at PinterestLayoutWithHeader: \(photoHeight)")
                 let annotationHeight = delegate.collectionView(collectionView!,
                     heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+                print("annotationHeight at PinterestLayoutWithHeader: \(annotationHeight)")
                 let height = cellPadding +  photoHeight + annotationHeight + cellPadding
+                print("height at PinterestLayoutWithHeader: \(height)")
                 //let height = cellPadding +  height + cellPadding
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
                 let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
-                let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.size.width = width
+                let attributes = PinterestLayoutAttributes(forCellWithIndexPath: indexPath)
+                //attributes.size.width = width
                 //attributes.size.height = height
-                attributes.size.height = photoHeight
+                attributes.photoHeight = photoHeight
                 attributes.frame = insetFrame
                 let key = layoutKeyForIndexPath(indexPath)
                 _layoutAttributes[key] = attributes
@@ -63,6 +66,10 @@ class PinterestLayoutWithHeader: PinterestLayout {
             }
             
         }
+    }
+    
+    func layoutKeyForHeaderAtIndexPath(indexPath : NSIndexPath) -> String {
+        return "s_\(indexPath.section)_\(indexPath.row)"
     }
     
     override func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {

@@ -12,10 +12,12 @@ class AccountTimeLineFetcher: TimeLineFetcher {
         switch selectedSegmentIndex {
         case 0:
             //自分の投稿を表示する
-            self.baseURL = "http://localhost:3000/timeline/show_mypost.json"
+            //self.baseURL = "http://localhost:3000/timeline/show_mypost.json"
+            self.baseURL = URL.TimeLine.MyPost.returnURL()
         case 1:
             //自分のお気に入りした投稿を表示する
-            self.baseURL = "http://localhost:3000/timeline/show_myfavorite.json"
+            //self.baseURL = "http://localhost:3000/timeline/show_myfavorite.json"
+            self.baseURL = URL.TimeLine.MyFavorite.returnURL()
         default:
             print("error")
         }

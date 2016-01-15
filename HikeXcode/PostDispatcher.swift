@@ -11,8 +11,10 @@ import SwiftyJSON
 
 class PostDispatcher {
 
-    var postURL = "http://localhost:3000/post/create.json"
-    var uploadURL = "http://localhost:3000/post/upload_process.json"
+    //var postURL = "http://localhost:3000/post/create.json"
+    var postURL = URL.Post.Text.returnURL()
+    //var uploadURL = "http://localhost:3000/post/upload_process.json"
+    var uploadURL = URL.Post.Image.returnURL()
     var params:[String:[String:AnyObject]] = [:]
     var post:Post?
     //指定したリソースファイル名と拡張子から、ファイルのある位置のフルパスをNSURLで返す

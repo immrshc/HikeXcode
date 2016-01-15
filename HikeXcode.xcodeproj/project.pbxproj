@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2290ED91C485F2B00674250 /* Var.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2290ED81C485F2B00674250 /* Var.swift */; };
 		E27B42811C41F3FE0097F7B9 /* PinterestLayoutWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B42801C41F3FE0097F7B9 /* PinterestLayoutWithHeader.swift */; };
 		E27B42851C41FA6F0097F7B9 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B42841C41FA6F0097F7B9 /* AccountViewController.swift */; };
 		E28CE42E1C367C2F00A69737 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28CE42D1C367C2F00A69737 /* PinterestLayout.swift */; };
@@ -61,6 +62,7 @@
 		5F8C475FD3D789FB28DFE643 /* Pods_HikeXcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HikeXcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB608E6C05DEFBC313BDAE6D /* Pods-HikeXcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.release.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.release.xcconfig"; sourceTree = "<group>"; };
 		B38476B753F0CA76D0A47534 /* Pods-HikeXcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HikeXcode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HikeXcode/Pods-HikeXcode.debug.xcconfig"; sourceTree = "<group>"; };
+		E2290ED81C485F2B00674250 /* Var.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Var.swift; sourceTree = "<group>"; };
 		E27B42801C41F3FE0097F7B9 /* PinterestLayoutWithHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayoutWithHeader.swift; sourceTree = "<group>"; };
 		E27B42841C41FA6F0097F7B9 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E28CE42D1C367C2F00A69737 /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				E28CE4311C36803700A69737 /* Asset */,
 				E29EFCB11C0F302C00F47A22 /* AppDelegate.swift */,
+				E2290ED81C485F2B00674250 /* Var.swift */,
 				E29EFCCE1C0F30A500F47A22 /* Controller */,
 				E28CE42F1C367C9800A69737 /* View */,
 				E28CE42C1C367BFA00A69737 /* Layout */,
@@ -468,6 +471,7 @@
 				E28CE42E1C367C2F00A69737 /* PinterestLayout.swift in Sources */,
 				E29EFCB21C0F302C00F47A22 /* AppDelegate.swift in Sources */,
 				E29EFCCA1C0F308900F47A22 /* TimeLineFetcher.swift in Sources */,
+				E2290ED91C485F2B00674250 /* Var.swift in Sources */,
 				E29EFCCC1C0F308900F47A22 /* User.swift in Sources */,
 				E29EFCC71C0F308900F47A22 /* TimeLineCollectionViewCell.swift in Sources */,
 				E27B42811C41F3FE0097F7B9 /* PinterestLayoutWithHeader.swift in Sources */,

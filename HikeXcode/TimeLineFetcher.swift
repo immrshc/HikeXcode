@@ -11,7 +11,8 @@ import SwiftyJSON
 
 class TimeLineFetcher {
     
-    var baseURL = "http://localhost:3000/timeline/show_timeline.json"
+    //var baseURL = "http://localhost:3000/timeline/show_timeline.json"
+    var baseURL = URL.TimeLine.TimeLine.returnURL()
     var defaultParameter:[String:[String:AnyObject]] = [:]
     let app = UIApplication.sharedApplication().delegate as! AppDelegate
     //String(app.sharedUserData["id"])とするとクラスが初期化される前にappを参照するのでエラーが起こるのでインスタンス生成時に設定させる

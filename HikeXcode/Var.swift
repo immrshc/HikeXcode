@@ -17,7 +17,7 @@ enum URL {
     enum Login: String {
         //ログイン時のユーザ認証
         case Auth = "/login/auth.json"
-        func returnURL() -> String {
+        func getURL() -> String {
             return URL.Base.Protocol.rawValue + URL.Base.Host.rawValue + self.rawValue
         }
     }
@@ -29,7 +29,7 @@ enum URL {
         case MyPost = "/timeline/show_mypost.json"
         //お気に入りの投稿の表示
         case MyFavorite = "/timeline/show_myfavorite.json"
-        func returnURL() -> String  {
+        func getURL() -> String  {
             return URL.Base.Protocol.rawValue + URL.Base.Host.rawValue + self.rawValue
         }
     }
@@ -39,7 +39,7 @@ enum URL {
         case Text = "/post/create.json"
         //画像のアップロード
         case Image = "/post/upload_process.json"
-        func returnURL() -> String {
+        func getURL() -> String {
             return URL.Base.Protocol.rawValue + URL.Base.Host.rawValue + self.rawValue
         }
     }

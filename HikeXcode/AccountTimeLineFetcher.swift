@@ -13,11 +13,11 @@ class AccountTimeLineFetcher: TimeLineFetcher {
         case 0:
             //自分の投稿を表示する
             //self.baseURL = "http://localhost:3000/timeline/show_mypost.json"
-            self.baseURL = URL.TimeLine.MyPost.returnURL()
+            self.baseURL = URL.TimeLine.MyPost.getURL()
         case 1:
             //自分のお気に入りした投稿を表示する
             //self.baseURL = "http://localhost:3000/timeline/show_myfavorite.json"
-            self.baseURL = URL.TimeLine.MyFavorite.returnURL()
+            self.baseURL = URL.TimeLine.MyFavorite.getURL()
         default:
             print("error")
         }

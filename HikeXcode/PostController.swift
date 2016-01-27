@@ -95,7 +95,7 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
             let imageURL:String = self.imageURL,
             let latitude:Double = self.latitude,
             let longitude:Double = self.longitude {
-                let post = Post(content: text, imageURL: imageURL, latitude: latitude, longitude: longitude)
+                let post = PostWrapper.getInstance(["Content": text, "ImageURL": imageURL, "Latitude": latitude, "Longitude": longitude])
                 //投稿されない場合はシミュレータが位置情報を取れていない場合を疑う
                 
                 //画像以外をリクエストする

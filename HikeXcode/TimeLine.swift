@@ -10,27 +10,31 @@ import SwiftyJSON
 
 class TimeLine {
 
-    var favoriteCheck:Bool = false
-    var favoriteCount:Int = 0
-    var username:String?
-    var text:String?
-    var imageURL:String = String(NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!)
-    //var imageURL:String = "http://parts.jbbs.shitaraba.net/material/wallpaper/bg_03_s.jpg"
-    var latitude:Double?
-    var longitude:Double?
-    
-    init(json:JSON){
-        self.favoriteCheck = json["favorite"].boolValue
-        self.favoriteCount = json["favorite_count"].intValue
-        self.username = json["user"]["username"].stringValue
-        self.text = json["text"].stringValue
+    private (set) var favoriteCheck:Bool = false
+    private (set) var favoriteCount:Int = 0
+    private (set) var username:String?
+    private (set) var text:String?
+    private (set) var imageURL:String?
+    private (set) var latitude:Double?
+    private (set) var longitude:Double?
+
+    init(
+        favoriteCheck: Bool,
+        favorite_count: Int,
+        username: String,
+        text: String,
+        imageURL: String,
+        latitude: Double,
+        longitude: Double
+    ){
+        self.favoriteCheck = favoriteCheck
+        self.favoriteCount = favorite_count
+        self.username = username
+        self.text = text
         //URLを取得してsd_setImageWithURLで取得する
-        //nilでなく文字列が指定されているならばURLとする
-        if json["imageURL"] != nil && json["imageURL"].stringValue.utf16.count != 0 {
-            self.imageURL = json["imageURL"].stringValue
-        }
-        self.latitude = json["latitude"].doubleValue
-        self.longitude = json["longitude"].doubleValue
+        self.imageURL = imageURL
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     //お気に入り状態の切り替え
@@ -51,4 +55,29 @@ class TimeLine {
         return ceil(rect.height)
     }
     
+}
+
+class TimeLineWrapper {
+    
+    static var imageURL = String(NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!)
+    
+    static func getInstance(json:JSON) -> TimeLine {
+        
+        //URLが指定されているかどうか確認する
+        if json["imageURL"] != nil && json["imageURL"].stringValue.utf16.count != 0 {
+            self.imageURL = json["imageURL"].stringValue
+        }
+        
+        let timeLine = TimeLine (
+            favoriteCheck: json["favorite"].boolValue,
+            favorite_count: json["favorite_count"].intValue,
+            username: json["user"]["username"].stringValue,
+            text: json["text"].stringValue,
+            imageURL: imageURL,
+            latitude: json["latitude"].doubleValue,
+            longitude: json["longitude"].doubleValue
+        )
+                
+        return timeLine
+    }
 }

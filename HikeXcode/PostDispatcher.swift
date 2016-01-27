@@ -11,14 +11,12 @@ import SwiftyJSON
 
 class PostDispatcher {
 
-    //var postURL = "http://localhost:3000/post/create.json"
-    var postURL = URL.Post.Text.getURL()
-    //var uploadURL = "http://localhost:3000/post/upload_process.json"
-    var uploadURL = URL.Post.Image.getURL()
-    var params:[String:[String:AnyObject]] = [:]
-    var post:Post?
+    private var postURL = URL.Post.Text.getURL()
+    private var uploadURL = URL.Post.Image.getURL()
+    private var params:[String:[String:AnyObject]] = [:]
+    private var post:Post?
     //指定したリソースファイル名と拡張子から、ファイルのある位置のフルパスをNSURLで返す
-    var fileURL = NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!
+    private var fileURL = NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!
     
     init(post:Post){
         self.post = post
@@ -31,6 +29,7 @@ class PostDispatcher {
             let postContent:String = post?.postContent,
             let latitude:Double = post?.latitude,
             let longitude:Double = post?.longitude {
+                
                 self.params = [
                     "user":[
                         "token": token,

@@ -11,10 +11,10 @@ import CoreLocation
 
 class TopTabBarController: UITabBarController, CLLocationManagerDelegate {
     
-    let app = UIApplication.sharedApplication().delegate as! AppDelegate
-    var lm: CLLocationManager!
-    var latitude: CLLocationDegrees!
-    var longitude: CLLocationDegrees!
+    private let app = UIApplication.sharedApplication().delegate as! AppDelegate
+    private var lm: CLLocationManager!
+    private var latitude: CLLocationDegrees!
+    private var longitude: CLLocationDegrees!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,7 +20,7 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
     func displayUpdate(timeline: TimeLine){
         self.post = timeline
         postTextLabel.text = self.post!.text
-        postIV.sd_setImageWithURL(NSURL(string: post!.imageURL))
+        postIV.sd_setImageWithURL(NSURL(string: post!.imageURL!))
         
         favoriteIconBtn.addTarget(self, action: "favoriteUpdate:", forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(favoriteIconBtn)
@@ -57,7 +57,6 @@ class TimeLineCollectionViewCell: UICollectionViewCell {
             imageViewHeightLayoutConstraint.constant = attributes.photoHeight
             //print("attributes.photoHeight: \(attributes.photoHeight)")
         }
-        //print(layoutAttributes.size)//photoHeight(312.0)ではなくセル全体の高さ(355.0)が格納されている
     }
 
 }

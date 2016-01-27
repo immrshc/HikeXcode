@@ -17,9 +17,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         if let username:String = userNameTF.text,
             let password:String = passWordTF.text {
-
-                UserFetcher.defaultParameter = ["username":username, "password":password]
-                UserFetcher.download{ (userData) -> Void in
+                
+                let userFetcher = UserFetcher()
+                userFetcher.setParameter = ["username":username, "password":password]
+                userFetcher.download{ (userData) -> Void in
                     //AppDelegateで共有させる
                     //本来はメモリではなく、ストレージに保存させるが、テストのため
                     let app = UIApplication.sharedApplication().delegate as! AppDelegate

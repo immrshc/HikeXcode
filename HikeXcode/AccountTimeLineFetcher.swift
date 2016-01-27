@@ -7,19 +7,24 @@
 //
 
 class AccountTimeLineFetcher: TimeLineFetcher {
+    
     init(selectedSegmentIndex: NSInteger){
         super.init()
-        switch selectedSegmentIndex {
+        self.setURL(selectedSegmentIndex)
+    }
+    
+    private func setURL(segmentIndex:NSInteger) -> Void {
+        switch segmentIndex {
         case 0:
             //自分の投稿を表示する
-            //self.baseURL = "http://localhost:3000/timeline/show_mypost.json"
             self.baseURL = URL.TimeLine.MyPost.getURL()
         case 1:
             //自分のお気に入りした投稿を表示する
-            //self.baseURL = "http://localhost:3000/timeline/show_myfavorite.json"
             self.baseURL = URL.TimeLine.MyFavorite.getURL()
         default:
             print("error")
         }
     }
+    
 }
+

@@ -9,20 +9,17 @@
 import UIKit
 import CoreLocation
 
-class Post/*: NSObject, CLLocationManagerDelegate*/ {
+class Post {
     
-    let app = UIApplication.sharedApplication().delegate as! AppDelegate
-    //var lm:CLLocationManager!
-    var token:String?
-    var userName:String?
-    var postContent:String?
-    var imageURL:String?
-    var latitude:Double?
-    var longitude:Double?
+    private let app = UIApplication.sharedApplication().delegate as! AppDelegate
+    private (set) var token:String?
+    private (set) var userName:String?
+    private (set) var postContent:String?
+    private (set) var imageURL:String?
+    private (set) var latitude:Double?
+    private (set) var longitude:Double?
     
     init(content:String, imageURL:String, latitude:Double, longitude:Double){
-    //init(content:String, latitude:Double, longitude:Double){
-        
 
         self.token = app.sharedUserData["token"] as? String
         self.userName = app.sharedUserData["username"] as? String
@@ -32,40 +29,27 @@ class Post/*: NSObject, CLLocationManagerDelegate*/ {
         
         self.latitude = latitude
         self.longitude = longitude
-    }
-
-    //PostControllerでPost().locationUpdateをしてもlocationManagerが実行されないが、
-    //PostControllerのviewDidLoader()なら実行される
-    //質問する
-    /*
-    func locationUpdate(){
-        lm = CLLocationManager()
-        longitude = CLLocationDegrees()
-        latitude = CLLocationDegrees()
         
-        lm.delegate = self
-        //位置情報取得の許可
-        lm.requestAlwaysAuthorization()
-        //位置情報の精度
-        lm.desiredAccuracy = kCLLocationAccuracyBest
-        //指定した値分移動したら位置情報を更新する
-        lm.distanceFilter = 1000
-        //GPSの使用を開始する
-        lm.startUpdatingLocation()
-        print("startUpdatingLocationを実行")
     }
     
-    //位置情報取得成功時に実行
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation){
-        latitude = Double(newLocation.coordinate.latitude)
-        longitude = Double(newLocation.coordinate.longitude)
-        print("latitude: \(latitude) , longitude: \(longitude)")
-    }
-    
-    //位置情報取得失敗時に実行
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("ErrorDomain: \(error.domain)")
-        print("ErrorCode: \(error.code)")
-    }
-    */
 }
+
+
+class PostWrapper {
+
+    static func getInstance(args:[String:AnyObject]) -> Post {
+
+        if let content = args["Content"] as? String,
+            let imageURL = args["ImageURL"] as? String,
+            let latitude = args["Latitude"] as? Double,
+            let longitude = args["Longitude"] as? Double {
+                let post = Post(content: content, imageURL: imageURL, latitude: latitude, longitude: longitude)
+                return post
+        } else {
+            print("Postの初期化に失敗しました")
+            return Post(content: "", imageURL: "", latitude: 0.0, longitude: 0.0)
+        }
+    }
+    
+}
+

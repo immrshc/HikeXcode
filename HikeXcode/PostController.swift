@@ -10,9 +10,9 @@ import UIKit
 
 class PostController: UIViewController, UITabBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var imageURL:String = "Image01.jpg"
-    var latitude: Double?
-    var longitude: Double?
+    private var imageURL:String = "Image01.jpg"
+    private var latitude: Double?
+    private var longitude: Double?
     
     //投稿画面の背景画像
     @IBOutlet weak var postBackIV: UIImageView!
@@ -39,9 +39,7 @@ class PostController: UIViewController, UITabBarDelegate, UIImagePickerControlle
                 self.longitude = longitude
                 print("ユーザの投稿時の緯度経度：\(latitude), \(longitude)")
         }
-        //PostクラスでlocationManagerが実行できるかのテスト
-        //Post(content: "", imageURL: "", latitude: 0, longitude: 0).locationUpdate()
-        //Postでは出来なくて、PostControllerでは出来るのはなぜか質問する
+
     }
     
     //押されたタブをタグで識別して処理を分ける

@@ -57,18 +57,8 @@ class PinterestLayout: UICollectionViewLayout {
         super.prepareLayout()
         
         _layoutAttributes = Dictionary<String, PinterestLayoutAttributes>() // 1
-        /*
-        let path = NSIndexPath(forItem: 0, inSection: 0)
-        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withIndexPath: path)
         
-        let headerHeight = CGFloat(130)
-        attributes.frame = CGRectMake(0, 0, self.collectionView!.frame.size.width, headerHeight)
-        
-        let headerKey = layoutKeyForHeaderAtIndexPath(path)
-        _layoutAttributes[headerKey] = attributes
-        */
         let numberOfSections = self.collectionView!.numberOfSections()
-        
         
         for var section = 0; section < numberOfSections; section++ {
             
@@ -141,15 +131,7 @@ class PinterestLayout: UICollectionViewLayout {
         //print("contentHeight: \(contentHeight)")
         return CGSize(width: contentWidth, height: contentHeight)
     }
-    
-    /*
-    override func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
-        let headerKey = layoutKeyForIndexPath(indexPath)
-        return _layoutAttributes[headerKey]
-    }
-    */
-    
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
         let key = layoutKeyForIndexPath(indexPath)

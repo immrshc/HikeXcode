@@ -12,10 +12,18 @@ import SwiftyJSON
 
 class UserFetcher: UIViewController {
     
-    //static let baseURL = "http://localhost:3000/login/auth.json"
-    static let baseURL = URL.Login.Auth.getURL()
-    static var defaultParameter:[String:String] = [:]
-    static func download(callback:(User)->Void){
+    let baseURL = URL.Login.Auth.getURL()
+    private var defaultParameter:[String:String] = [:]
+    var setParameter:[String:String] {
+        get {
+            return defaultParameter
+        }
+        set(params) {
+            self.defaultParameter = params
+        }
+    }
+    
+    func download(callback:(User)->Void){
         Alamofire.request(.GET, baseURL, parameters: defaultParameter).responseJSON {_, _, result in
             if result.isSuccess,
                 let res = result.value as? [String:AnyObject]{

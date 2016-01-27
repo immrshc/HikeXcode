@@ -11,10 +11,9 @@ import SwiftyJSON
 
 class TimeLineFetcher {
     
-    //var baseURL = "http://localhost:3000/timeline/show_timeline.json"
     var baseURL = URL.TimeLine.TimeLine.getURL()
-    var defaultParameter:[String:[String:AnyObject]] = [:]
-    let app = UIApplication.sharedApplication().delegate as! AppDelegate
+    private var defaultParameter:[String:[String:AnyObject]] = [:]
+    private let app = UIApplication.sharedApplication().delegate as! AppDelegate
     //String(app.sharedUserData["id"])とするとクラスが初期化される前にappを参照するのでエラーが起こるのでインスタンス生成時に設定させる
     //http://stackoverflow.com/questions/32693150/whats-wrong-here-instance-member-cannot-be-used-on-type
     init(){
@@ -28,7 +27,7 @@ class TimeLineFetcher {
                 let posts = result.value as? [AnyObject]{
                     var postArray:[TimeLine] = []
                     for var i = 0; i < posts.count; i++ {
-                        let post = TimeLine(json: JSON(posts[i]))
+                        let post = TimeLineWrapper.getInstance(JSON(posts[i]))
                         postArray.append(post)
                     }
                     callback(postArray)

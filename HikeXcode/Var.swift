@@ -45,3 +45,8 @@ enum URL {
     }
     
 }
+
+enum Errors: ErrorType {
+    //オーバーライドされるべきメソッドがされていない場合
+    case ForgottenOverride(className: String)
+}

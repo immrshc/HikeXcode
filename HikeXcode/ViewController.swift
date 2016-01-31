@@ -9,24 +9,65 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PinterestLayoutDelegate {
     
     var postArray:[TimeLine] = []
     var refreshControl:UIRefreshControl!
     var postImage:UIImage?
-    
     var defaultCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //UICollectionViewの設定
+        self.defaultCollectionView = setCollectionView()
+        
+        //上に引っ張るとリロードされる動作の設定
+        self.refreshContoll()
+        
+        //Pinterestのプロトコルを後で実装する
+        self.setDelegateOfLayout()
+        
+        //タイムラインを非同期で取得する
+        self.getTimeLine()
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func getTimeLine(){
+        print("タイムラインを非同期で取得する")
+    }
+
+    func setCollectionView() -> UICollectionView! {
+        print("defaultCollectionViewに代入する")
+        return nil
+    }
+   
+    func setDelegateOfLayout(){
+        print("レイアウトのデリゲートを設定する")
+    }
+    
+    //上に引っ張ると投稿をリロードする
+    func refresh(){
+        //投稿文をダウンロードする
+        print("OverrideForgotten")
+    }
+    
+    //アスペクト比に応じた写真の高さを取得して、セルの写真の高さにする
+    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath,
+        withWidth width: CGFloat) -> CGFloat {
+            print("アスペクト比に応じた写真の高さを取得して返す")
+            return 0.0
+    }
+    
+    //投稿文の長さに応じて写真以外のセルの高さを調整する
+    func collectionView(collectionView: UICollectionView,
+        heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+            print("投稿文の長さに応じて写真以外のセルの高さを調整して返す")
+            return 0.0
     }
     
     //上に引っ張るとリロードされる動作の設定
-    func refreshContoll(){
+    private func refreshContoll(){
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Loading...")
         self.refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -44,11 +85,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //背景が黒の場合、ステータスバーを白色にする
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-    
-    //上に引っ張ると投稿をリロードする
-    func refresh(){
-        //投稿文をダウンロードする
     }
     
     //セル数の指定
@@ -75,67 +111,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    //アスペクト比に応じた写真の高さを取得して、セルの写真の高さにする
-    func getHightOfPhoto(indexPath: NSIndexPath, width: CGFloat) -> CGFloat {
         
-        let post = postArray[indexPath.row]
-        let URL = NSURL(string: post.imageURL!)
-        let data = NSData(contentsOfURL: URL!)//取得するのに時間が掛かるので非同期通信にする
-        self.postImage = UIImage(data: data!)
-
-        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        
-        /*
-        //非同期通信した後に再度、UICollectionViewLayoutのprepareLayout()を実行しないといけないと反映されない
-        ImageFetcher(imageURL: post.imageURL!).download{(items) -> Void in
-            self.postImage = UIImage(data: items)
-            let rect  = AVMakeRectWithAspectRatioInsideRect(self.postImage!.size, boundingRect)
-            self.height =  rect.size.height
-            self.defaultCollectionView?.reloadData()
-        }
-        */
-        
-        //calculate a height that retains the photo’s aspect ratio, restricted to the cell’s width
-        let rect  = AVMakeRectWithAspectRatioInsideRect(self.postImage!.size, boundingRect)
-        return rect.size.height
-    }
-    
-    //投稿文の長さに応じて写真以外のセルの高さを調整する
-    func getHightOfAnnotation(indexPath: NSIndexPath, width: CGFloat) -> CGFloat {
-        let annotationPadding = CGFloat(14) + CGFloat(5)
-        let favoriteHeaderHeight = CGFloat(20)
-        let post:TimeLine = postArray[indexPath.row]
-        let font = UIFont(name: "Times New Roman", size: 20)!
-        //フォントとセルの幅からラベルの高さを返す
-        let commentHeight = post.heightForComment(font, width: width)
-        let height = annotationPadding + favoriteHeaderHeight + commentHeight
-        //print("commentHeight at TimeLine: \(commentHeight)")
-        //print("height at TimeLine: \(height)")
-        return height
-    }
-    
 }
 
 
-
-import Alamofire
-
-class ImageFetcher {
-    
-    var url:String?
-    
-    init(imageURL: String){
-        self.url = imageURL
-    }
-    
-    func download(collback:(NSData) -> Void){
-        Alamofire.request(.GET, url!).response { (request, response, data, error) in
-            if let data = data {
-                collback(data)
-            }
-        }
-        
-    }
-    
-}

@@ -74,35 +74,34 @@ class PinterestLayout: UICollectionViewLayout {
             for var item = 0; item < numberOfItems; item++ {
                 
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
+
                 //セルの幅
                 let width = columnWidth - cellPadding * 2
                 //セルの写真の高さ
                 let photoHeight = delegate.collectionView(collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
-                //print("photoHeight at PinterestLayout: \(photoHeight)")//312.0が一般的
                 //セルの投稿文とお気に入り部分の高さ
                 let annotationHeight = delegate.collectionView(collectionView!,
-                    heightForAnnotationAtIndexPath: indexPath, withWidth: width)//43.0が一般的
-                print("annotationHeight at PinterestLayout: \(annotationHeight)")
+                    heightForAnnotationAtIndexPath: indexPath, withWidth: width)
                 //セル全体の高さ
                 let height = cellPadding +  photoHeight + annotationHeight + cellPadding
-                //print("height at PinterestLayout: \(height)")
                 //セル全体のサイズ
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
                 //余白部分を無くしたセル全体のサイズ
                 let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
-                
-                //let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 let attributes = PinterestLayoutAttributes(forCellWithIndexPath: indexPath)
-                //attributes.size.width = width
                 attributes.photoHeight = photoHeight
                 attributes.frame = insetFrame
+                //ここまでがindexPathを利用した具体的な計算
+                
+                //目的①
                 let key = layoutKeyForIndexPath(indexPath)
                 _layoutAttributes[key] = attributes
                 
-                //ここでCGRectGetMaxYを返さないとスクロールできない
+                //目的②
                 contentHeight = max(contentHeight, CGRectGetMaxY(frame))
-                yOffset[column] = yOffset[column] + height
                 
+                //目的③
+                yOffset[column] = yOffset[column] + height
                 column = column >= (numberOfColumns - 1) ? 0 : ++column
             }
             
@@ -112,43 +111,36 @@ class PinterestLayout: UICollectionViewLayout {
     
     // MARK: -
     // MARK: Helpers
-    
     func layoutKeyForIndexPath(indexPath : NSIndexPath) -> String {
         return "\(indexPath.section)_\(indexPath.row)"
     }
     
     // MARK:
     // MARK: Invalidate
-    
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         return !CGSizeEqualToSize(newBounds.size, self.collectionView!.frame.size)
     }
     
     // MARK: -
     // MARK: Required methods
-    
     override func collectionViewContentSize() -> CGSize {
         //print("contentHeight: \(contentHeight)")
         return CGSize(width: contentWidth, height: contentHeight)
     }
         
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        
         let key = layoutKeyForIndexPath(indexPath)
         return _layoutAttributes[key]
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         let predicate = NSPredicate {  [unowned self] (evaluatedObject, bindings) -> Bool in
             let layoutAttribute = self._layoutAttributes[evaluatedObject as! String]
             return CGRectIntersectsRect(rect, layoutAttribute!.frame)
         }
-        
         let dict = _layoutAttributes as NSDictionary
         let keys = dict.allKeys as NSArray
         let matchingKeys = keys.filteredArrayUsingPredicate(predicate)
-        
         return dict.objectsForKeys(matchingKeys, notFoundMarker: NSNull()) as? [PinterestLayoutAttributes]
     }
     

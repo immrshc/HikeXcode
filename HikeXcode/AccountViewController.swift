@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountViewController: ViewController, PinterestLayoutDelegate {
+class AccountViewController: ViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var selectedIndex:NSInteger!
@@ -16,40 +16,41 @@ class AccountViewController: ViewController, PinterestLayoutDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.defaultCollectionView = collectionView
-        
-        //上に引っ張るとリロードされる動作の設定
-        self.refreshContoll()
-        
-        //Pinterestのプロトコルを後で実装する
-        if let layout = collectionView?.collectionViewLayout as? PinterestLayoutWithHeader {
-            layout.delegate = self
-        }
-
-        //ユーザIDに紐付いた自分の投稿を配列にする
-        AccountTimeLineFetcher(selectedSegmentIndex: 0).download { (items) -> Void in
-            self.postArray = items
-            self.collectionView?.reloadData()
-        }
-        
         //xibファイルを登録
         let nib = UINib(nibName: "AccountHeader", bundle: nil)
         collectionView.registerNib(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "AccountHeader")
         collectionView.reloadData()
     }
     
-    //投稿画面へ遷移する
-    @IBAction func postDo(sender: AnyObject) {
-        self.showPost()
+    override func getTimeLine(){
+        AccountTimeLineFetcher(selectedSegmentIndex: 0).download { (items) -> Void in
+            self.postArray = items
+            self.collectionView?.reloadData()
+        }
+    }
+    
+    override func setCollectionView() -> UICollectionView! {
+        return collectionView
+    }
+    
+    override func setDelegateOfLayout(){
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayoutWithHeader {
+            layout.delegate = self
+        }
     }
     
     //上に引っ張ると投稿をリロードする
     override func refresh(){
-        AccountTimeLineFetcher(selectedSegmentIndex: selectedIndex).download { (items) -> Void in
+        AccountTimeLineFetcher(selectedSegmentIndex: 0).download { (items) -> Void in
             self.postArray = items
             self.refreshControl.endRefreshing()
             self.collectionView?.reloadData()
         }
+    }
+    
+    //投稿画面へ遷移する
+    @IBAction func postDo(sender: AnyObject) {
+        self.showPost()
     }
     
     //ヘッダーをXibファイルから生成
@@ -75,16 +76,22 @@ class AccountViewController: ViewController, PinterestLayoutDelegate {
     }
     
     //アスペクト比に応じた写真の高さを取得して、セルの写真の高さにする
-    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath,
+    override func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath,
         withWidth width: CGFloat) -> CGFloat {
-            let height =  self.getHightOfPhoto(indexPath, width: width)
+            let post = postArray[indexPath.row]
+            let imageSize = post.imageInfo?.size
+            let height = LayoutCalculator.calculateHeightOfPhotoWithAspectRatio(width, imageSize: imageSize!)
             return height
     }
     
     //投稿文の長さに応じて写真以外のセルの高さを調整する
-    func collectionView(collectionView: UICollectionView,
+    override func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-            let height = self.getHightOfAnnotation(indexPath, width: width)
+            //フォントとセルの幅からラベルの高さを返す
+            let font = UIFont(name: "Times New Roman", size: 20)!
+            let post:TimeLine = postArray[indexPath.row]
+            let commentHeight = post.heightForComment(font, width: width)
+            let height = LayoutCalculator.calculateHeightOfAnnotation(commentHeight)
             return height
     }
     

@@ -14,9 +14,14 @@ class TimeLine {
     private (set) var favoriteCount:Int = 0
     private (set) var username:String?
     private (set) var text:String?
-    private (set) var imageURL:String?
+    private (set) var imageInfo:ImageOfTimeLine?
     private (set) var latitude:Double?
     private (set) var longitude:Double?
+    
+    struct ImageOfTimeLine {
+        private (set) var url:String?
+        private (set) var size: CGSize?
+    }
 
     init(
         favoriteCheck: Bool,
@@ -24,6 +29,7 @@ class TimeLine {
         username: String,
         text: String,
         imageURL: String,
+        imageSize: CGSize,
         latitude: Double,
         longitude: Double
     ){
@@ -31,8 +37,8 @@ class TimeLine {
         self.favoriteCount = favorite_count
         self.username = username
         self.text = text
-        //URLを取得してsd_setImageWithURLで取得する
-        self.imageURL = imageURL
+        self.imageInfo?.url = imageURL
+        self.imageInfo?.size = imageSize
         self.latitude = latitude
         self.longitude = longitude
     }
@@ -51,7 +57,6 @@ class TimeLine {
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
         let rect = NSString(string: self.text!).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         //数値式以上の最小の整数を戻す
-        //print("ceil(rect.height): \(ceil(rect.height))")
         return ceil(rect.height)
     }
     
@@ -60,13 +65,14 @@ class TimeLine {
 class TimeLineWrapper {
     
     static var imageURL = String(NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!)
+    static var imageSize:CGSize = (UIImage(named: "Image02")?.size)!
     
     static func getInstance(json:JSON) -> TimeLine {
         
-        //URLが指定されているかどうか確認する
-        if json["imageURL"] != nil && json["imageURL"].stringValue.utf16.count != 0 {
-            self.imageURL = json["imageURL"].stringValue
-        }
+        //画像のURLを指定する
+        self.setImageURL(json)
+        //画像のサイズを取得する
+        self.setImageSize(json)
         
         let timeLine = TimeLine (
             favoriteCheck: json["favorite"].boolValue,
@@ -74,10 +80,28 @@ class TimeLineWrapper {
             username: json["user"]["username"].stringValue,
             text: json["text"].stringValue,
             imageURL: imageURL,
+            imageSize: imageSize,
             latitude: json["latitude"].doubleValue,
             longitude: json["longitude"].doubleValue
         )
-                
+        
         return timeLine
     }
+    
+    
+    static private func setImageURL(json: JSON){
+        if json["imageURL"] != nil && json["imageURL"].stringValue.utf16.count != 0 {
+            self.imageURL = json["imageURL"].stringValue
+        }
+    }
+    
+    
+    static private func setImageSize(json: JSON){
+        if json["imageSize"]["width"] != nil && json["imageSize"]["height"] != nil {
+            let width = json["imageSize"]["width"].doubleValue
+            let height = json["imageSize"]["height"].doubleValue
+            self.imageSize = CGSize(width: width, height: height)
+        }
+    }
+    
 }

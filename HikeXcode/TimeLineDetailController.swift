@@ -24,7 +24,7 @@ class TimeLineDetailController: UIViewController {
         super.viewDidLoad()
             self.userNameLabel.text = post.username
             self.postLabel.text = post.text
-            self.postIV.sd_setImageWithURL(NSURL(string: post.imageURL!))
+            self.postIV.sd_setImageWithURL(NSURL(string: (post.imageInfo?.url)!))
             self.favoriteCountLabel.text = String(post.favoriteCount)
         
             favoriteIconBtn.addTarget(self, action: "favoriteUpdate:", forControlEvents: UIControlEvents.TouchUpInside)

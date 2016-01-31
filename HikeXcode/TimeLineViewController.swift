@@ -9,33 +9,30 @@
 import UIKit
 import MapKit
 
-class TimeLineViewController: ViewController, PinterestLayoutDelegate {
+class TimeLineViewController: ViewController {
     
     @IBOutlet var collectionView: UICollectionView!
         
     override func viewDidLoad() {
        super.viewDidLoad()
         
-        self.defaultCollectionView = collectionView
-        
-        //上に引っ張るとリロードされる動作の設定
-        self.refreshContoll()
-        
-        //Pinterestのプロトコルを後で実装する
-        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
-            layout.delegate = self
-        }
-
+    }
+    
+    override func getTimeLine(){
         TimeLineFetcher().download { (items) -> Void in
             self.postArray = items
             self.collectionView?.reloadData()
         }
-
     }
     
-    //投稿画面へ遷移する
-    @IBAction func postDo(sender: AnyObject) {
-        self.showPost()
+    override func setCollectionView() -> UICollectionView! {
+        return collectionView
+    }
+    
+    override func setDelegateOfLayout(){
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+            layout.delegate = self
+        }
     }
     
     //上に引っ張ると投稿をリロードする
@@ -47,20 +44,30 @@ class TimeLineViewController: ViewController, PinterestLayoutDelegate {
         }
     }
     
+    //投稿画面へ遷移する
+    @IBAction func postDo(sender: AnyObject) {
+        self.showPost()
+    }
+    
     //アスペクト比に応じた写真の高さを取得して、セルの写真の高さにする
-    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath,
+    override func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath,
         withWidth width: CGFloat) -> CGFloat {
-            let height =  self.getHightOfPhoto(indexPath, width: width)
+            let post = postArray[indexPath.row]
+            let imageSize = post.imageInfo?.size
+            let height = LayoutCalculator.calculateHeightOfPhotoWithAspectRatio(width, imageSize: imageSize!)
             return height
     }
     
     //投稿文の長さに応じて写真以外のセルの高さを調整する
-    func collectionView(collectionView: UICollectionView,
+    override func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-            let height = self.getHightOfAnnotation(indexPath, width: width)
+            //フォントとセルの幅からラベルの高さを返す
+            let font = UIFont(name: "Times New Roman", size: 20)!
+            let post:TimeLine = postArray[indexPath.row]
+            let commentHeight = post.heightForComment(font, width: width)
+            let height = LayoutCalculator.calculateHeightOfAnnotation(commentHeight)
             return height
     }
-    
 }
 
 

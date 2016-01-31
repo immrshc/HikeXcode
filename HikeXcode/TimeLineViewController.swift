@@ -46,7 +46,7 @@ class TimeLineViewController: ViewController {
     
     //投稿画面へ遷移する
     @IBAction func postDo(sender: AnyObject) {
-        self.showPost()
+        self.showPost()        
     }
     
     //アスペクト比に応じた写真の高さを取得して、セルの写真の高さにする
@@ -54,7 +54,6 @@ class TimeLineViewController: ViewController {
         withWidth width: CGFloat) -> CGFloat {
             let post = postArray[indexPath.row]
             let imageSize = post.imageInfo?.size
-            print("imageSize: \(imageSize)")
             let height = LayoutCalculator.calculateHeightOfPhotoWithAspectRatio(width, imageSize: imageSize!)
             return height
     }

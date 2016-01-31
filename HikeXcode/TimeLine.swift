@@ -97,9 +97,9 @@ class TimeLineWrapper {
     
     
     private func setImageSize(json: JSON){
-        if json["imageSize"]["width"] != nil && json["imageSize"]["height"] != nil {
-            let width = json["imageSize"]["width"].doubleValue
-            let height = json["imageSize"]["height"].doubleValue
+        if json["imageSize"]["image_width"] != nil && json["imageSize"]["image_height"] != nil {
+            let width = json["imageSize"]["image_width"].doubleValue
+            let height = json["imageSize"]["image_height"].doubleValue
             self.imageSize = CGSize(width: width, height: height)
         }
     }

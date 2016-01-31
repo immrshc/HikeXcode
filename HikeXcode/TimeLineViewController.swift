@@ -54,6 +54,7 @@ class TimeLineViewController: ViewController {
         withWidth width: CGFloat) -> CGFloat {
             let post = postArray[indexPath.row]
             let imageSize = post.imageInfo?.size
+            print("imageSize: \(imageSize)")
             let height = LayoutCalculator.calculateHeightOfPhotoWithAspectRatio(width, imageSize: imageSize!)
             return height
     }

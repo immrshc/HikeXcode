@@ -10,6 +10,11 @@ import SwiftyJSON
 
 class TimeLine {
 
+    struct ImageOfTimeLine {
+        private (set) var url:String?
+        private (set) var size: CGSize?
+    }
+    
     private (set) var favoriteCheck:Bool = false
     private (set) var favoriteCount:Int = 0
     private (set) var username:String?
@@ -18,11 +23,6 @@ class TimeLine {
     private (set) var latitude:Double?
     private (set) var longitude:Double?
     
-    struct ImageOfTimeLine {
-        private (set) var url:String?
-        private (set) var size: CGSize?
-    }
-
     init(
         favoriteCheck: Bool,
         favorite_count: Int,
@@ -37,7 +37,7 @@ class TimeLine {
         self.favoriteCount = favorite_count
         self.username = username
         self.text = text
-        self.imageInfo?.url = imageURL
+        self.imageInfo = ImageOfTimeLine(url: imageURL, size: imageSize)
         self.imageInfo?.size = imageSize
         self.latitude = latitude
         self.longitude = longitude
@@ -64,10 +64,10 @@ class TimeLine {
 
 class TimeLineWrapper {
     
-    static var imageURL = String(NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!)
-    static var imageSize:CGSize = (UIImage(named: "Image02")?.size)!
+    var imageURL = String(NSBundle.mainBundle().URLForResource("Image02", withExtension: "jpg")!)
+    var imageSize:CGSize = (UIImage(named: "Image02.jpg")!.size)
     
-    static func getInstance(json:JSON) -> TimeLine {
+    func getInstance(json:JSON) -> TimeLine {
         
         //画像のURLを指定する
         self.setImageURL(json)
@@ -89,14 +89,14 @@ class TimeLineWrapper {
     }
     
     
-    static private func setImageURL(json: JSON){
+    private func setImageURL(json: JSON){
         if json["imageURL"] != nil && json["imageURL"].stringValue.utf16.count != 0 {
             self.imageURL = json["imageURL"].stringValue
         }
     }
     
     
-    static private func setImageSize(json: JSON){
+    private func setImageSize(json: JSON){
         if json["imageSize"]["width"] != nil && json["imageSize"]["height"] != nil {
             let width = json["imageSize"]["width"].doubleValue
             let height = json["imageSize"]["height"].doubleValue

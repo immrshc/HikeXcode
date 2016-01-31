@@ -27,7 +27,7 @@ class TimeLineFetcher {
                 let posts = result.value as? [AnyObject]{
                     var postArray:[TimeLine] = []
                     for var i = 0; i < posts.count; i++ {
-                        let post = TimeLineWrapper.getInstance(JSON(posts[i]))
+                        let post = TimeLineWrapper().getInstance(JSON(posts[i]))
                         postArray.append(post)
                     }
                     callback(postArray)
